@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immigrant Contributions to US Olympic Success — 2026 Milano Cortina | Niskanen Center</title>
+<meta name="description" content="How immigrants and their children powered America's best Winter Olympics ever. An interactive data dashboard from the Niskanen Center.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neuton:wght@400;700;800&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dk:#0c2a30;--primary:#194852;--med:#348397;--lt:#7dceda;--ltest:#b7f6fc;
+  --n-dk:#78a0a3;--n-md:#d0dbdd;--n-lt:#edf1f2;--wh:#ffffff;
+  --gold-acc:#bca45e;--gold-lt:#f4da91;--warm:#f17d3a;--green:#709628;
+  --medal-gold:#D4AF37;--medal-silver:#C0C0C0;--medal-bronze:#CD7F32;
+  --font-head:'Neuton',Georgia,serif;--font-body:'Hanken Grotesk','Inter',sans-serif;
+  --section-pad:80px 0;--card-radius:12px;--transition:0.3s ease;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);font-weight:300;color:var(--dk);background:var(--wh);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.15}
+a{color:var(--med);text-decoration:none}
+img{max-width:100%}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ===== NAVIGATION ===== */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(12,42,48,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(125,206,218,0.15)}
+.site-nav .container{display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-brand{font-family:var(--font-head);color:var(--ltest);font-size:1.1rem;font-weight:700;letter-spacing:0.3px}
+.nav-links{display:flex;gap:4px}
+.nav-links a{color:var(--n-md);font-size:0.82rem;font-weight:500;padding:8px 14px;border-radius:6px;transition:var(--transition);letter-spacing:0.2px}
+.nav-links a:hover,.nav-links a.active{color:var(--ltest);background:rgba(125,206,218,0.12)}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-brand{font-size:0.95rem}
+  .site-nav .container{height:50px}
+  .mobile-nav-toggle{display:block;background:none;border:none;color:var(--n-md);font-size:1.4rem;cursor:pointer;padding:8px}
+}
+@media(min-width:769px){.mobile-nav-toggle{display:none}}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,var(--dk) 0%,var(--primary) 40%,var(--med) 100%);color:var(--wh);padding:100px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(125,206,218,0.12) 0%,transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(183,246,252,0.08) 0%,transparent 70%);border-radius:50%}
+.hero .container{position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--font-body);font-weight:600;font-size:0.85rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--lt);margin-bottom:20px;opacity:0.9}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:800;line-height:1.08;margin-bottom:28px;max-width:800px}
+.hero h1 .accent{color:var(--gold-lt)}
+.hero-sub{font-size:1.15rem;font-weight:300;color:var(--n-md);max-width:600px;margin-bottom:48px;line-height:1.55}
+
+/* Medal row visual */
+.medal-row{display:flex;gap:12px;margin-bottom:56px;flex-wrap:wrap}
+.medal-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;transition:transform 0.4s ease,box-shadow 0.4s ease;position:relative}
+.medal-icon.immigrant{background:linear-gradient(135deg,var(--medal-gold),#e8c547);box-shadow:0 4px 20px rgba(212,175,55,0.5);transform:scale(1)}
+.medal-icon.immigrant::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--lt);animation:pulse-ring 2s ease-in-out infinite}
+.medal-icon.regular{background:linear-gradient(135deg,#3a6068,#2a4a52);box-shadow:0 2px 8px rgba(0,0,0,0.2);opacity:0.6}
+@keyframes pulse-ring{0%,100%{opacity:0.4}50%{opacity:1}}
+
+/* Stats row */
+.stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.stat-card{background:rgba(255,255,255,0.07);backdrop-filter:blur(8px);border:1px solid rgba(125,206,218,0.15);border-radius:var(--card-radius);padding:28px 24px;transition:var(--transition)}
+.stat-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(125,206,218,0.3);transform:translateY(-2px)}
+.stat-number{font-family:var(--font-head);font-size:2.6rem;font-weight:800;color:var(--gold-lt);line-height:1;margin-bottom:8px}
+.stat-label{font-size:0.88rem;font-weight:400;color:var(--n-md);line-height:1.4}
+
+/* ===== SECTION SHARED ===== */
+.section{padding:var(--section-pad)}
+.section-header{text-align:center;margin-bottom:52px}
+.section-header h2{font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--primary);margin-bottom:12px}
+.section-header p{font-size:1.05rem;color:var(--n-dk);max-width:620px;margin:0 auto;font-weight:300}
+.section-alt{background:var(--n-lt)}
+
+/* Explore navigation pills */
+.explore-nav{display:flex;justify-content:center;gap:8px;margin-bottom:48px;flex-wrap:wrap}
+.explore-nav button{font-family:var(--font-body);font-weight:500;font-size:0.88rem;padding:10px 22px;border-radius:100px;border:1.5px solid var(--n-md);background:var(--wh);color:var(--primary);cursor:pointer;transition:var(--transition)}
+.explore-nav button:hover{border-color:var(--med);color:var(--med)}
+.explore-nav button.active{background:var(--primary);color:var(--wh);border-color:var(--primary)}
+
+/* ===== MEDAL GRID ===== */
+.filter-bar{display:flex;gap:8px;justify-content:center;margin-bottom:32px;flex-wrap:wrap}
+.filter-btn{font-family:var(--font-body);font-weight:500;font-size:0.82rem;padding:8px 18px;border-radius:100px;border:1.5px solid var(--n-md);background:var(--wh);color:var(--primary);cursor:pointer;transition:var(--transition)}
+.filter-btn:hover{border-color:var(--med)}
+.filter-btn.active{background:var(--primary);color:var(--wh);border-color:var(--primary)}
+
+.medal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.medal-card{border-radius:var(--card-radius);padding:20px;border:1.5px solid var(--n-md);background:var(--wh);cursor:pointer;transition:var(--transition);position:relative;overflow:hidden}
+.medal-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(25,72,82,0.1)}
+.medal-card.immigrant-card{border-color:var(--lt);background:linear-gradient(135deg,rgba(183,246,252,0.08),rgba(125,206,218,0.05))}
+.medal-card.immigrant-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--lt),var(--med))}
+.medal-card.expanded{grid-column:1/-1;max-width:100%}
+.medal-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;letter-spacing:0.3px;text-transform:uppercase}
+.medal-chip.gold{background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.08));color:#8b7323}
+.medal-chip.silver{background:rgba(192,192,192,0.2);color:#666}
+.medal-chip.bronze{background:rgba(205,127,50,0.15);color:#8b5a2b}
+.medal-dot{width:10px;height:10px;border-radius:50%}
+.medal-dot.gold{background:var(--medal-gold)}
+.medal-dot.silver{background:var(--medal-silver)}
+.medal-dot.bronze{background:var(--medal-bronze)}
+.medal-card-event{font-family:var(--font-head);font-size:1.25rem;margin:12px 0 4px;color:var(--dk)}
+.medal-card-sport{font-size:0.85rem;color:var(--n-dk);margin-bottom:12px}
+.medal-card-tag{display:inline-flex;align-items:center;gap:4px;font-size:0.75rem;font-weight:600;color:var(--med);background:rgba(52,131,151,0.08);padding:3px 10px;border-radius:100px}
+.medal-card-roster{margin-top:16px;padding-top:16px;border-top:1px solid var(--n-md)}
+.roster-athlete{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:0.9rem}
+.roster-athlete.is-immigrant{font-weight:600;color:var(--primary)}
+.roster-athlete .origin-flag{font-size:1.1rem}
+.roster-athlete .imm-badge{font-size:0.7rem;font-weight:600;color:var(--med);background:rgba(52,131,151,0.1);padding:2px 8px;border-radius:100px}
+
+/* ===== CALLOUT CARDS ===== */
+.callout-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-top:48px}
+.callout-card{background:linear-gradient(135deg,var(--primary),var(--dk));color:var(--wh);border-radius:var(--card-radius);padding:32px 28px;position:relative;overflow:hidden}
+.callout-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(125,206,218,0.15),transparent 70%);border-radius:50%}
+.callout-card h3{font-family:var(--font-head);font-size:1.4rem;margin-bottom:12px;color:var(--gold-lt)}
+.callout-card p{font-size:0.9rem;font-weight:300;line-height:1.55;color:var(--n-md);position:relative;z-index:1}
+.callout-stat{display:inline-block;font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--lt);background:rgba(125,206,218,0.12);padding:6px 14px;border-radius:8px;margin-top:16px}
+
+/* ===== ATHLETE CARDS ===== */
+.athlete-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+.athlete-card{background:var(--wh);border:1.5px solid var(--n-md);border-radius:var(--card-radius);padding:28px 24px;transition:var(--transition);position:relative;overflow:hidden}
+.athlete-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(25,72,82,0.1);border-color:var(--lt)}
+.athlete-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(to right,var(--med),var(--lt))}
+.athlete-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.athlete-name{font-family:var(--font-head);font-size:1.5rem;color:var(--dk)}
+.athlete-flag{font-size:2rem}
+.athlete-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.athlete-meta-tag{font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:100px;letter-spacing:0.3px}
+.athlete-meta-tag.sport{background:rgba(52,131,151,0.1);color:var(--med)}
+.athlete-meta-tag.classification{background:rgba(188,164,94,0.12);color:#8b7323}
+.athlete-medals-list{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.athlete-medal-chip{display:inline-flex;align-items:center;gap:5px;font-size:0.78rem;font-weight:500;padding:5px 12px;border-radius:8px;border:1px solid var(--n-md)}
+.athlete-story{font-size:0.88rem;color:#4a6a6e;line-height:1.6;font-weight:300}
+
+/* ===== HERITAGE MAP ===== */
+.heritage-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.heritage-card{background:var(--wh);border:1.5px solid var(--n-md);border-radius:var(--card-radius);padding:24px;transition:var(--transition);cursor:pointer}
+.heritage-card:hover{border-color:var(--lt);transform:translateY(-2px);box-shadow:0 6px 24px rgba(25,72,82,0.08)}
+.heritage-top{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.heritage-flag{font-size:2.8rem}
+.heritage-country{font-family:var(--font-head);font-size:1.4rem;color:var(--dk)}
+.heritage-continent{font-size:0.8rem;color:var(--n-dk);font-weight:400}
+.heritage-count{font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--med)}
+.heritage-athletes{margin-top:12px;padding-top:12px;border-top:1px solid var(--n-lt)}
+.heritage-athlete-name{font-size:0.88rem;padding:4px 0;color:var(--primary);font-weight:500}
+
+/* ===== WORLD VIZ ===== */
+.world-viz{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin-bottom:48px;padding:40px 20px}
+.country-bubble{display:flex;flex-direction:column;align-items:center;gap:8px;transition:var(--transition);cursor:pointer}
+.country-bubble:hover{transform:scale(1.08)}
+.bubble-circle{border-radius:50%;background:linear-gradient(135deg,var(--med),var(--lt));display:flex;align-items:center;justify-content:center;transition:var(--transition);position:relative;box-shadow:0 4px 16px rgba(52,131,151,0.2)}
+.bubble-circle .flag-emoji{position:absolute}
+.bubble-label{font-size:0.82rem;font-weight:600;color:var(--primary);text-align:center}
+.bubble-count{font-size:0.72rem;color:var(--n-dk)}
+
+/* ===== SPORT BARS ===== */
+.sport-bars{max-width:800px;margin:0 auto}
+.sport-bar-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--n-lt);transition:var(--transition);cursor:pointer}
+.sport-bar-row:hover{background:rgba(125,206,218,0.04);padding-left:8px}
+.sport-bar-label{width:180px;font-weight:600;font-size:0.92rem;color:var(--dk);flex-shrink:0}
+.sport-bar-track{flex:1;height:32px;background:var(--n-lt);border-radius:8px;overflow:hidden;position:relative;display:flex}
+.sport-bar-fill{height:100%;border-radius:8px;transition:width 1s ease;display:flex;align-items:center;justify-content:flex-end;padding-right:12px}
+.sport-bar-fill.immigrant{background:linear-gradient(to right,var(--med),var(--lt))}
+.sport-bar-fill.total{background:var(--n-md)}
+.sport-bar-pct{font-size:0.78rem;font-weight:700;color:var(--wh);white-space:nowrap}
+.sport-bar-detail{font-size:0.78rem;color:var(--n-dk);width:120px;text-align:right;flex-shrink:0}
+.sport-expanded{padding:12px 0 12px 196px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.sport-expanded-athlete{font-size:0.85rem;padding:6px 12px;border-radius:8px;background:var(--n-lt)}
+.sport-expanded-athlete.imm{background:rgba(125,206,218,0.15);color:var(--med);font-weight:600}
+
+/* ===== METHODOLOGY ===== */
+.methodology{background:var(--dk);color:var(--n-md);padding:60px 0}
+.methodology h3{font-family:var(--font-head);font-size:1.6rem;color:var(--lt);margin-bottom:20px}
+.methodology p{font-size:0.88rem;line-height:1.7;margin-bottom:12px;max-width:700px}
+.methodology .source{font-weight:600;color:var(--gold-lt);margin-top:20px}
+
+/* ===== ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.stagger-1{transition-delay:0.1s}.stagger-2{transition-delay:0.2s}.stagger-3{transition-delay:0.3s}.stagger-4{transition-delay:0.4s}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu{display:none;position:fixed;top:50px;left:0;right:0;background:rgba(12,42,48,0.98);backdrop-filter:blur(12px);z-index:99;padding:16px;border-bottom:1px solid rgba(125,206,218,0.15)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;color:var(--n-md);font-size:0.9rem;font-weight:500;padding:12px 16px;border-radius:8px;transition:var(--transition)}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--ltest);background:rgba(125,206,218,0.1)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .hero{padding:60px 0 48px}
+  .hero h1{font-size:2rem}
+  .hero-sub{font-size:0.95rem}
+  .medal-icon{width:40px;height:40px;font-size:1.2rem}
+  .medal-row{gap:8px;margin-bottom:36px}
+  .stat-cards{grid-template-columns:1fr 1fr;gap:12px}
+  .stat-card{padding:18px 14px}
+  .stat-number{font-size:1.8rem}
+  .stat-label{font-size:0.78rem}
+  .section{padding:48px 0}
+  .section-header{margin-bottom:32px}
+  .medal-grid{grid-template-columns:1fr}
+  .callout-strip{grid-template-columns:1fr}
+  .athlete-grid{grid-template-columns:1fr}
+  .heritage-grid{grid-template-columns:1fr}
+  .sport-bar-label{width:100px;font-size:0.82rem}
+  .sport-bar-detail{width:80px;font-size:0.72rem}
+  .sport-expanded{padding-left:116px}
+  .explore-nav{gap:6px}
+  .explore-nav button{padding:8px 16px;font-size:0.8rem}
+  .container{padding:0 16px}
+}
+@media(max-width:480px){
+  .stat-cards{grid-template-columns:1fr}
+  .medal-row{justify-content:center}
+  .filter-bar{gap:6px}
+  .filter-btn{padding:6px 14px;font-size:0.78rem}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, useCallback } = React;
+
+// ===== EMBEDDED DATA =====
+const DATA = {
+  metadata: {
+    title: "Immigrant Contributions to US Olympic Success — 2026 Milano Cortina",
+    subtitle: "How immigrants and their children powered America's best Winter Olympics ever",
+    source: "Niskanen Center",
+    methodology_note: "Athletes classified by parental birthplace. 'Immigrant-connected' = athlete is foreign-born, or has at least one parent born outside the US. Surname ethnicity and heritage labels alone are not evidence — classifications require documented parental birthplaces.",
+    games: "2026 Milano Cortina Winter Olympics",
+    date_range: "February 6–22, 2026",
+    total_us_medals: 33,
+    total_us_gold: 12,
+    total_us_silver: 12,
+    total_us_bronze: 9,
+    total_unique_medalists: 82,
+    total_immigrant_connected: 14,
+    immigrant_pct: 17.1,
+    record_note: "The US won a record 12 gold medals, breaking the previous Winter Olympics record. The men's hockey gold was the first since the 1980 'Miracle on Ice.'"
+  },
+  headline_stats: {
+    athlete_level: { immigrant_connected: 14, total: 82, pct: 17.1, label: "1 in 6 US medalists has an immigrant parent or is an immigrant" },
+    gold_medal_involvement: { golds_with_immigrant: 6, total_golds: 12, pct: 50.0, label: "Half of all US gold medals involved immigrant-connected athletes" },
+    medal_level_any_involvement: { medals_with_immigrant: 11, total_medals: 33, pct: 33.3, label: "1 in 3 US medals involved an immigrant-connected athlete" },
+    individual_medals_only: { immigrant_medals: 8, total_individual_medals: 23, pct: 34.8, label: "More than 1 in 3 individual medals won by immigrant-connected athletes" },
+    countries_represented: { count: 9, label: "Immigrant parents from 9 different countries across 4 continents" }
+  },
+  origin_countries: [
+    { country: "Canada", flag: "\u{1F1E8}\u{1F1E6}", continent: "North America", athlete_count: 6, athletes: ["Kaillie Humphries","Brady Tkachuk","Matthew Tkachuk","Tage Thompson","Dylan Larkin","Jake Sanderson"] },
+    { country: "South Korea", flag: "\u{1F1F0}\u{1F1F7}", continent: "Asia", athlete_count: 1, athletes: ["Chloe Kim"] },
+    { country: "Russia", flag: "\u{1F1F7}\u{1F1FA}", continent: "Europe", athlete_count: 1, athletes: ["Ilia Malinin"] },
+    { country: "China", flag: "\u{1F1E8}\u{1F1F3}", continent: "Asia", athlete_count: 1, athletes: ["Alysa Liu"] },
+    { country: "Mexico", flag: "\u{1F1F2}\u{1F1FD}", continent: "North America", athlete_count: 1, athletes: ["Auston Matthews"] },
+    { country: "Germany", flag: "\u{1F1E9}\u{1F1EA}", continent: "Europe", athlete_count: 1, athletes: ["Jordan Stolz"] },
+    { country: "Japan", flag: "\u{1F1EF}\u{1F1F5}", continent: "Asia", athlete_count: 1, athletes: ["Ellie Kam"] },
+    { country: "Italy", flag: "\u{1F1EE}\u{1F1F9}", continent: "Europe", athlete_count: 1, athletes: ["Alex Hall"] },
+    { country: "Argentina", flag: "\u{1F1E6}\u{1F1F7}", continent: "South America", athlete_count: 1, athletes: ["Alex Ferreira"] }
+  ],
+  immigrant_athletes: [
+    { name:"Kaillie Humphries", sport:"Bobsled", classification:"FOREIGN_BORN", origin_country:"Canada", origin_flag:"\u{1F1E8}\u{1F1E6}", parent_detail:"Born in Calgary, Alberta, Canada. Became US citizen in 2021.", medals:[{event:"Women's Monobob",medal:"Bronze",event_type:"individual"},{event:"Women's 2-Woman",medal:"Bronze",event_type:"pair"}], medal_count:2, story:"Born and raised in Canada, Humphries won gold for Canada in 2010 and 2014 before switching allegiance to the US. She became a US citizen in 2021 and won monobob gold at the 2022 Beijing Olympics \u2014 the first woman to win Olympic bobsled gold for two different countries." },
+    { name:"Chloe Kim", sport:"Snowboard", classification:"TWO_IMMIGRANT_PARENTS", origin_country:"South Korea", origin_flag:"\u{1F1F0}\u{1F1F7}", parent_detail:"Both parents immigrated from South Korea. Father Jong Jin Kim came to the US in 1982 with $800.", medals:[{event:"Women's Halfpipe",medal:"Silver",event_type:"individual"}], medal_count:1, story:"The daughter of South Korean immigrants, Chloe's father Jong Jin worked multiple jobs to fund her snowboarding career. She won halfpipe gold at age 17 in 2018 and again in 2022, becoming the most dominant halfpipe rider in history." },
+    { name:"Ilia Malinin", sport:"Figure Skating", classification:"TWO_IMMIGRANT_PARENTS", origin_country:"Russia", origin_flag:"\u{1F1F7}\u{1F1FA}", parent_detail:"Both parents \u2014 Tatiana Malinina and Roman Skorniakov \u2014 are former competitive figure skaters from Russia.", medals:[{event:"Team Event",medal:"Gold",event_type:"team"}], medal_count:1, story:"Known as the 'Quad God,' Malinin is the son of two Russian figure skaters who moved to the US. He landed the first ratified quadruple axel in competition history in 2022, a jump many thought physically impossible." },
+    { name:"Jake Sanderson", sport:"Ice Hockey", classification:"TWO_IMMIGRANT_PARENTS", origin_country:"Canada", origin_flag:"\u{1F1E8}\u{1F1E6}", parent_detail:"Father Geoff Sanderson born in Hay River, Northwest Territories, Canada. Mother also from the Edmonton/St. Albert area, Canada.", medals:[{event:"Men's Tournament",medal:"Gold",event_type:"team"}], medal_count:1, story:"Both of Sanderson's parents are Canadian. His father Geoff played 17 seasons in the NHL after being born in one of Canada's most remote communities \u2014 Hay River, Northwest Territories, population 3,500." },
+    { name:"Alysa Liu", sport:"Figure Skating", classification:"ONE_IMMIGRANT_PARENT", origin_country:"China", origin_flag:"\u{1F1E8}\u{1F1F3}", parent_detail:"Father Arthur Liu immigrated from Sichuan Province, China. He is a lawyer who survived the Tiananmen Square protests.", medals:[{event:"Women's Singles",medal:"Gold",event_type:"individual"},{event:"Team Event",medal:"Gold",event_type:"team"}], medal_count:2, story:"Liu's father Arthur survived the 1989 Tiananmen Square massacre in China before immigrating to the US. Alysa became the youngest US women's champion at age 13 in 2019 and won individual Olympic gold in 2026." },
+    { name:"Jordan Stolz", sport:"Speed Skating", classification:"ONE_IMMIGRANT_PARENT", origin_country:"Germany", origin_flag:"\u{1F1E9}\u{1F1EA}", parent_detail:"Father Dirk Stolz was born in Germany.", medals:[{event:"Men's 1000m",medal:"Gold",event_type:"individual"},{event:"Men's 500m",medal:"Gold",event_type:"individual"},{event:"Men's 1500m",medal:"Silver",event_type:"individual"}], medal_count:3, story:"The son of a German-born father, Stolz was the breakout star of the 2026 Games. At just 20 years old, he won 3 medals including 2 golds, accounting for 9% of all US medals by himself \u2014 the most dominant individual US performance at any Winter Olympics in decades." },
+    { name:"Ellie Kam", sport:"Figure Skating", classification:"ONE_IMMIGRANT_PARENT", origin_country:"Japan", origin_flag:"\u{1F1EF}\u{1F1F5}", parent_detail:"Mother born in Japan.", medals:[{event:"Team Event",medal:"Gold",event_type:"team"}], medal_count:1, story:"Kam's mother was born in Japan. Ellie competed as a pairs skater on the US figure skating team that won gold in the team event." },
+    { name:"Alex Hall", sport:"Freestyle Skiing", classification:"ONE_IMMIGRANT_PARENT", origin_country:"Italy", origin_flag:"\u{1F1EE}\u{1F1F9}", parent_detail:"Mother born in Italy.", medals:[{event:"Men's Slopestyle",medal:"Silver",event_type:"individual"}], medal_count:1, story:"Hall's mother was born in Italy. Alex won silver in freestyle slopestyle, building on his reputation as one of the most creative skiers in the sport." },
+    { name:"Alex Ferreira", sport:"Freestyle Skiing", classification:"ONE_IMMIGRANT_PARENT", origin_country:"Argentina", origin_flag:"\u{1F1E6}\u{1F1F7}", parent_detail:"Father Marcelo Ferreira was born in Argentina and played professional soccer.", medals:[{event:"Men's Halfpipe",medal:"Gold",event_type:"individual"}], medal_count:1, story:"Ferreira's father Marcelo came to the US from Argentina, where he had been a professional soccer player. Alex grew up in Aspen, CO and won gold in the freestyle halfpipe event." },
+    { name:"Auston Matthews", sport:"Ice Hockey", classification:"ONE_IMMIGRANT_PARENT", origin_country:"Mexico", origin_flag:"\u{1F1F2}\u{1F1FD}", parent_detail:"Mother Ema Matthews (n\u00e9e Lopez) born in Hermosillo, Sonora, Mexico.", medals:[{event:"Men's Tournament",medal:"Gold",event_type:"team"}], medal_count:1, story:"The captain of the gold-medal winning US men's hockey team, Matthews' mother Ema immigrated from Hermosillo, Mexico. He grew up in Scottsdale, AZ and fell in love with hockey after his mother took him to a Coyotes game. Matthews assisted on the opening goal in the gold medal final \u2014 the first US men's hockey gold since the 1980 'Miracle on Ice.'" },
+    { name:"Brady Tkachuk", sport:"Ice Hockey", classification:"ONE_IMMIGRANT_PARENT", origin_country:"Canada", origin_flag:"\u{1F1E8}\u{1F1E6}", parent_detail:"Mother Chantal Oster born in Winnipeg, Manitoba, Canada. Father Keith Tkachuk born in Melrose, MA.", medals:[{event:"Men's Tournament",medal:"Gold",event_type:"team"}], medal_count:1, story:"Brady's mother Chantal grew up in Winnipeg, Canada, and met his father Keith \u2014 a US-born NHL star \u2014 when Keith played for the Winnipeg Jets. Brady and his brother Matthew both made the gold-medal US roster." },
+    { name:"Matthew Tkachuk", sport:"Ice Hockey", classification:"ONE_IMMIGRANT_PARENT", origin_country:"Canada", origin_flag:"\u{1F1E8}\u{1F1E6}", parent_detail:"Mother Chantal Oster born in Winnipeg, Manitoba, Canada. Father Keith Tkachuk born in Melrose, MA.", medals:[{event:"Men's Tournament",medal:"Gold",event_type:"team"}], medal_count:1, story:"Like his brother Brady, Matthew's mother Chantal is from Winnipeg, Canada. Matthew plays for the Florida Panthers and was part of the historic gold-medal US hockey team." },
+    { name:"Tage Thompson", sport:"Ice Hockey", classification:"ONE_IMMIGRANT_PARENT", origin_country:"Canada", origin_flag:"\u{1F1E8}\u{1F1E6}", parent_detail:"Father Brent Thompson born in Calgary, Alberta, Canada.", medals:[{event:"Men's Tournament",medal:"Gold",event_type:"team"}], medal_count:1, story:"Thompson's father Brent was born in Calgary and played professional hockey in North America. Tage grew up in Orange, CT and became one of the NHL's most dangerous scorers before helping the US win gold." },
+    { name:"Dylan Larkin", sport:"Ice Hockey", classification:"ONE_IMMIGRANT_PARENT", origin_country:"Canada", origin_flag:"\u{1F1E8}\u{1F1E6}", parent_detail:"Father Kevin Larkin born in Scarborough, Ontario, Canada.", medals:[{event:"Men's Tournament",medal:"Gold",event_type:"team"}], medal_count:1, story:"Larkin's father Kevin grew up in Scarborough, Ontario, Canada before moving to the US. Dylan became captain of the Detroit Red Wings and was part of the gold-medal US hockey roster." }
+  ],
+  medals: [
+    {id:1,event:"Women's Downhill",sport:"Alpine Skiing",medal:"Gold",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Breezy Johnson",immigrant:false}]},
+    {id:2,event:"Team Event",sport:"Figure Skating",medal:"Gold",event_type:"team",roster_size:7,immigrant_count:3,immigrant_pct:42.9,immigrant_involved:true,athletes:[{name:"Ilia Malinin",immigrant:true,origin:"Russia"},{name:"Alysa Liu",immigrant:true,origin:"China"},{name:"Ellie Kam",immigrant:true,origin:"Japan"},{name:"Amber Glenn",immigrant:false},{name:"Daniel O'Shea",immigrant:false},{name:"Madison Chock",immigrant:false},{name:"Evan Bates",immigrant:false}]},
+    {id:3,event:"Women's Moguls",sport:"Freestyle Skiing",medal:"Gold",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Elizabeth Lemley",immigrant:false}]},
+    {id:4,event:"Men's 1000m",sport:"Speed Skating",medal:"Gold",event_type:"individual",roster_size:1,immigrant_count:1,immigrant_pct:100,immigrant_involved:true,athletes:[{name:"Jordan Stolz",immigrant:true,origin:"Germany"}]},
+    {id:5,event:"Women's Monobob",sport:"Bobsled",medal:"Gold",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Elana Meyers Taylor",immigrant:false}]},
+    {id:6,event:"Men's 500m",sport:"Speed Skating",medal:"Gold",event_type:"individual",roster_size:1,immigrant_count:1,immigrant_pct:100,immigrant_involved:true,athletes:[{name:"Jordan Stolz",immigrant:true,origin:"Germany"}]},
+    {id:7,event:"Women's Slalom",sport:"Alpine Skiing",medal:"Gold",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Mikaela Shiffrin",immigrant:false}]},
+    {id:8,event:"Women's Tournament",sport:"Ice Hockey",medal:"Gold",event_type:"team",roster_size:23,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Cayla Barnes",immigrant:false},{name:"Hannah Bilka",immigrant:false},{name:"Alex Carpenter",immigrant:false},{name:"Kendall Coyne Schofield",immigrant:false},{name:"Britta Curl-Salemme",immigrant:false},{name:"Joy Dunne",immigrant:false},{name:"Laila Edwards",immigrant:false},{name:"Aerin Frankel",immigrant:false},{name:"Rory Guilday",immigrant:false},{name:"Caroline Harvey",immigrant:false},{name:"Taylor Heise",immigrant:false},{name:"Tessa Janecke",immigrant:false},{name:"Megan Keller",immigrant:false},{name:"Hilary Knight",immigrant:false},{name:"Ava McNaughton",immigrant:false},{name:"Abbey Murphy",immigrant:false},{name:"Kelly Pannek",immigrant:false},{name:"Gwyneth Philips",immigrant:false},{name:"Hayley Scamurra",immigrant:false},{name:"Kirsten Simms",immigrant:false},{name:"Lee Stecklein",immigrant:false},{name:"Haley Winn",immigrant:false},{name:"Grace Zumwinkle",immigrant:false}]},
+    {id:9,event:"Women's Singles",sport:"Figure Skating",medal:"Gold",event_type:"individual",roster_size:1,immigrant_count:1,immigrant_pct:100,immigrant_involved:true,athletes:[{name:"Alysa Liu",immigrant:true,origin:"China"}]},
+    {id:10,event:"Men's Halfpipe",sport:"Freestyle Skiing",medal:"Gold",event_type:"individual",roster_size:1,immigrant_count:1,immigrant_pct:100,immigrant_involved:true,athletes:[{name:"Alex Ferreira",immigrant:true,origin:"Argentina"}]},
+    {id:11,event:"Mixed Team Aerials",sport:"Freestyle Skiing",medal:"Gold",event_type:"team",roster_size:3,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Christopher Lillis",immigrant:false},{name:"Winter Vinecki",immigrant:false},{name:"Eric Loughran",immigrant:false}]},
+    {id:12,event:"Men's Tournament",sport:"Ice Hockey",medal:"Gold",event_type:"team",roster_size:25,immigrant_count:6,immigrant_pct:24,immigrant_involved:true,athletes:[{name:"Auston Matthews",immigrant:true,origin:"Mexico",note:"Captain"},{name:"Brady Tkachuk",immigrant:true,origin:"Canada"},{name:"Matthew Tkachuk",immigrant:true,origin:"Canada"},{name:"Tage Thompson",immigrant:true,origin:"Canada"},{name:"Dylan Larkin",immigrant:true,origin:"Canada"},{name:"Jake Sanderson",immigrant:true,origin:"Canada"},{name:"Matt Boldy",immigrant:false},{name:"Kyle Connor",immigrant:false},{name:"Jack Eichel",immigrant:false},{name:"Jack Hughes",immigrant:false},{name:"Jake Guentzel",immigrant:false},{name:"Clayton Keller",immigrant:false},{name:"J.T. Miller",immigrant:false},{name:"Brock Nelson",immigrant:false},{name:"Vincent Trocheck",immigrant:false},{name:"Brock Faber",immigrant:false},{name:"Noah Hanifin",immigrant:false},{name:"Quinn Hughes",immigrant:false},{name:"Jackson LaCombe",immigrant:false},{name:"Charlie McAvoy",immigrant:false},{name:"Jaccob Slavin",immigrant:false},{name:"Zach Werenski",immigrant:false},{name:"Connor Hellebuyck",immigrant:false},{name:"Jake Oettinger",immigrant:false},{name:"Jeremy Swayman",immigrant:false}]},
+    {id:13,event:"Women's Moguls",sport:"Freestyle Skiing",medal:"Silver",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Jaelin Kauf",immigrant:false}]},
+    {id:14,event:"Men's Slopestyle",sport:"Freestyle Skiing",medal:"Silver",event_type:"individual",roster_size:1,immigrant_count:1,immigrant_pct:100,immigrant_involved:true,athletes:[{name:"Alex Hall",immigrant:true,origin:"Italy"}]},
+    {id:15,event:"Men's Big Air",sport:"Freestyle Skiing",medal:"Silver",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Mac Forehand",immigrant:false}]},
+    {id:16,event:"Women's Dual Moguls",sport:"Freestyle Skiing",medal:"Silver",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Jaelin Kauf",immigrant:false}]},
+    {id:17,event:"Men's 1500m",sport:"Speed Skating",medal:"Silver",event_type:"individual",roster_size:1,immigrant_count:1,immigrant_pct:100,immigrant_involved:true,athletes:[{name:"Jordan Stolz",immigrant:true,origin:"Germany"}]},
+    {id:18,event:"Men's Team Pursuit",sport:"Speed Skating",medal:"Silver",event_type:"team",roster_size:4,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Ethan Cepuran",immigrant:false},{name:"Casey Dawson",immigrant:false},{name:"Emery Lehman",immigrant:false},{name:"Conor McDermott-Mostowy",immigrant:false}]},
+    {id:19,event:"Ice Dance",sport:"Figure Skating",medal:"Silver",event_type:"pair",roster_size:2,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Madison Chock",immigrant:false},{name:"Evan Bates",immigrant:false}]},
+    {id:20,event:"Men's Super-G",sport:"Alpine Skiing",medal:"Silver",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Ryan Cochran-Siegle",immigrant:false}]},
+    {id:21,event:"Men's Sprint Classic",sport:"Cross-Country Skiing",medal:"Silver",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Ben Ogden",immigrant:false}]},
+    {id:22,event:"Men's Team Sprint",sport:"Cross-Country Skiing",medal:"Silver",event_type:"pair",roster_size:2,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Ben Ogden",immigrant:false},{name:"Gus Schumacher",immigrant:false}]},
+    {id:23,event:"Women's Halfpipe",sport:"Snowboard",medal:"Silver",event_type:"individual",roster_size:1,immigrant_count:1,immigrant_pct:100,immigrant_involved:true,athletes:[{name:"Chloe Kim",immigrant:true,origin:"South Korea"}]},
+    {id:24,event:"Mixed Doubles",sport:"Curling",medal:"Silver",event_type:"pair",roster_size:2,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Cory Thiesse",immigrant:false},{name:"Korey Dropkin",immigrant:false}]},
+    {id:25,event:"Women's Team Combined",sport:"Alpine Skiing",medal:"Bronze",event_type:"pair",roster_size:2,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Jacqueline Wiles",immigrant:false},{name:"Paula Moltzan",immigrant:false}]},
+    {id:26,event:"Women's Monobob",sport:"Bobsled",medal:"Bronze",event_type:"individual",roster_size:1,immigrant_count:1,immigrant_pct:100,immigrant_involved:true,athletes:[{name:"Kaillie Humphries",immigrant:true,origin:"Canada"}]},
+    {id:27,event:"Women's 2-Woman",sport:"Bobsled",medal:"Bronze",event_type:"pair",roster_size:2,immigrant_count:1,immigrant_pct:50,immigrant_involved:true,athletes:[{name:"Kaillie Humphries",immigrant:true,origin:"Canada"},{name:"Jasmine Jones",immigrant:false}]},
+    {id:28,event:"Women's 10km",sport:"Cross-Country Skiing",medal:"Bronze",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Jessie Diggins",immigrant:false}]},
+    {id:29,event:"Women's Dual Moguls",sport:"Freestyle Skiing",medal:"Bronze",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Elizabeth Lemley",immigrant:false}]},
+    {id:30,event:"Men's Slopestyle",sport:"Snowboard",medal:"Bronze",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Jake Canter",immigrant:false}]},
+    {id:31,event:"Women's Singles",sport:"Luge",medal:"Bronze",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Ashley Farquharson",immigrant:false}]},
+    {id:32,event:"Women's 1500m",sport:"Short Track Speed Skating",medal:"Bronze",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Corinne Stoddard",immigrant:false}]},
+    {id:33,event:"Women's Mass Start",sport:"Speed Skating",medal:"Bronze",event_type:"individual",roster_size:1,immigrant_count:0,immigrant_pct:0,immigrant_involved:false,athletes:[{name:"Mia Manganello",immigrant:false}]}
+  ],
+  sport_breakdown: [
+    {sport:"Ice Hockey",total_medalists:48,immigrant_count:6,pct:12.5,medals:2,immigrant_medals:1},
+    {sport:"Figure Skating",total_medalists:9,immigrant_count:3,pct:33.3,medals:3,immigrant_medals:2},
+    {sport:"Speed Skating",total_medalists:6,immigrant_count:1,pct:16.7,medals:4,immigrant_medals:3},
+    {sport:"Freestyle Skiing",total_medalists:8,immigrant_count:2,pct:25.0,medals:7,immigrant_medals:2},
+    {sport:"Alpine Skiing",total_medalists:5,immigrant_count:0,pct:0,medals:4,immigrant_medals:0},
+    {sport:"Snowboard",total_medalists:2,immigrant_count:1,pct:50.0,medals:2,immigrant_medals:1},
+    {sport:"Bobsled",total_medalists:3,immigrant_count:1,pct:33.3,medals:3,immigrant_medals:2},
+    {sport:"Cross-Country Skiing",total_medalists:3,immigrant_count:0,pct:0,medals:3,immigrant_medals:0},
+    {sport:"Curling",total_medalists:2,immigrant_count:0,pct:0,medals:1,immigrant_medals:0},
+    {sport:"Luge",total_medalists:1,immigrant_count:0,pct:0,medals:1,immigrant_medals:0},
+    {sport:"Short Track Speed Skating",total_medalists:1,immigrant_count:0,pct:0,medals:1,immigrant_medals:0}
+  ],
+  narrative_callouts: [
+    {id:"hockey_gold",title:"The New Miracle on Ice",text:"The US men's hockey team won gold for the first time since the 1980 'Miracle on Ice.' Nearly a quarter of the roster \u2014 6 of 25 players \u2014 have at least one immigrant parent. Team captain Auston Matthews, whose mother Ema immigrated from Mexico, assisted on the opening goal in the gold medal game.",stat:"6 of 25 players (24%)",medal_id:12},
+    {id:"stolz_dominance",title:"One Man, Three Medals",text:"Jordan Stolz, son of a German-born father, won 3 medals by himself \u2014 2 golds and a silver \u2014 accounting for 9% of all US medals at the Games. He was the most dominant individual American performer at any Winter Olympics in decades.",stat:"3 of 33 medals (9%)",athlete:"Jordan Stolz"},
+    {id:"figure_skating_team",title:"Skating's Immigrant Core",text:"The US figure skating team that won gold was 43% immigrant-connected: Ilia Malinin (Russian parents), Alysa Liu (Chinese father who survived Tiananmen Square), and Ellie Kam (Japanese mother). Malinin, the 'Quad God,' landed jumps many thought physically impossible.",stat:"3 of 7 skaters (43%)",medal_id:2},
+    {id:"nine_countries",title:"Nine Countries, One Team",text:"The 14 immigrant-connected US medalists trace their roots to 9 different countries across 4 continents: Canada, Mexico, Argentina, South Korea, China, Japan, Russia, Germany, and Italy.",stat:"9 countries, 4 continents"},
+    {id:"gold_half",title:"Immigrants Power Gold",text:"Immigrant-connected athletes were involved in 6 of the 12 US gold medals \u2014 exactly half. From Jordan Stolz's speed skating dominance to the figure skating team to the men's hockey roster, immigrant families were at the center of America's best Winter Olympics ever.",stat:"6 of 12 golds (50%)"}
+  ]
+};
+
+// ===== UTILITY HOOKS =====
+function useInView(options = {}) {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setIsVisible(true); observer.unobserve(el); }
+    }, { threshold: 0.15, ...options });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return [ref, isVisible];
+}
+
+function useAnimatedCounter(end, duration = 1800, trigger = true) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!trigger) return;
+    let start = 0;
+    const startTime = performance.now();
+    const isFloat = end % 1 !== 0;
+    function tick(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = eased * end;
+      setCount(isFloat ? parseFloat(current.toFixed(1)) : Math.round(current));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }, [end, duration, trigger]);
+  return count;
+}
+
+// ===== HELPER =====
+function classificationLabel(c) {
+  switch(c) {
+    case 'FOREIGN_BORN': return 'Foreign-Born';
+    case 'TWO_IMMIGRANT_PARENTS': return 'Both Parents Immigrants';
+    case 'ONE_IMMIGRANT_PARENT': return 'One Immigrant Parent';
+    default: return c;
+  }
+}
+
+function medalEmoji(m) {
+  switch(m) {
+    case 'Gold': return '\u{1F947}';
+    case 'Silver': return '\u{1F948}';
+    case 'Bronze': return '\u{1F949}';
+    default: return '\u{1F3C5}';
+  }
+}
+
+// ===== COMPONENTS =====
+
+function AnimatedStat({ value, suffix = '', label, delay = 0 }) {
+  const [ref, isVisible] = useInView();
+  const count = useAnimatedCounter(value, 1800, isVisible);
+  return (
+    <div ref={ref} className={`stat-card reveal ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: `${delay}s` }}>
+      <div className="stat-number">{count}{suffix}</div>
+      <div className="stat-label">{label}</div>
+    </div>
+  );
+}
+
+function HeroMedalRow() {
+  const golds = DATA.medals.filter(m => m.medal === 'Gold').sort((a,b) => b.immigrant_involved - a.immigrant_involved);
+  return (
+    <div className="medal-row" role="img" aria-label="12 gold medals, 6 involving immigrant-connected athletes highlighted">
+      {golds.map((m, i) => (
+        <div key={m.id} className={`medal-icon ${m.immigrant_involved ? 'immigrant' : 'regular'}`}
+             title={`${m.event}${m.immigrant_involved ? ' — Immigrant-connected' : ''}`}
+             style={{ animationDelay: `${i * 0.15}s` }}>
+          {m.immigrant_involved ? '\u{1F947}' : '\u{1F947}'}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Hero() {
+  const [ref, isVisible] = useInView();
+  return (
+    <section className="hero" id="top" ref={ref}>
+      <div className="container">
+        <div className={`reveal ${isVisible ? 'visible' : ''}`}>
+          <div className="hero-eyebrow">Niskanen Center &middot; 2026 Milano Cortina Winter Olympics</div>
+          <h1>Half of America's gold medals were powered by <span className="accent">immigrant families.</span></h1>
+          <p className="hero-sub">{DATA.metadata.subtitle}. The US won a record {DATA.metadata.total_us_medals} medals, and immigrant-connected athletes were at the heart of the achievement.</p>
+        </div>
+        <HeroMedalRow />
+        <div className="stat-cards">
+          <AnimatedStat value={14} suffix=" of 82" label="medalists are immigrants or children of immigrants (17%)" delay={0.1} />
+          <AnimatedStat value={11} suffix=" of 33" label="total medals involved immigrant-connected athletes" delay={0.2} />
+          <AnimatedStat value={9} label="countries across 4 continents represented" delay={0.3} />
+          <AnimatedStat value={33.3} suffix="%" label="of US medals had an immigrant connection" delay={0.4} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== MEDALS SECTION =====
+function MedalCard({ medal, expanded, onClick }) {
+  const medalClass = medal.medal.toLowerCase();
+  return (
+    <div
+      className={`medal-card ${medal.immigrant_involved ? 'immigrant-card' : ''} ${expanded ? 'expanded' : ''}`}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={e => e.key === 'Enter' && onClick()}
+      aria-expanded={expanded}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <span className={`medal-chip ${medalClass}`}>
+          <span className={`medal-dot ${medalClass}`}></span>
+          {medal.medal}
+        </span>
+        {medal.immigrant_involved && (
+          <span className="medal-card-tag">{medal.immigrant_count} immigrant-connected</span>
+        )}
+      </div>
+      <div className="medal-card-event">{medal.event}</div>
+      <div className="medal-card-sport">{medal.sport} &middot; {medal.event_type === 'individual' ? 'Individual' : medal.event_type === 'pair' ? 'Pair' : 'Team'}</div>
+      {expanded && (
+        <div className="medal-card-roster">
+          <div style={{ fontSize: '0.78rem', fontWeight: 600, color: '#78a0a3', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '1px' }}>
+            Full Roster ({medal.roster_size})
+          </div>
+          {medal.athletes.map(a => (
+            <div key={a.name} className={`roster-athlete ${a.immigrant ? 'is-immigrant' : ''}`}>
+              {a.immigrant && <span className="origin-flag">{DATA.immigrant_athletes.find(ia => ia.name === a.name)?.origin_flag || ''}</span>}
+              <span>{a.name}{a.note ? ` (${a.note})` : ''}</span>
+              {a.immigrant && <span className="imm-badge">Immigrant-connected</span>}
+            </div>
+          ))}
+          {medal.immigrant_involved && (
+            <div style={{ marginTop: 12, fontSize: '0.82rem', color: '#348397', fontWeight: 500 }}>
+              {medal.immigrant_pct}% of this team/event's roster has immigrant connections
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MedalsSection() {
+  const [filter, setFilter] = useState('all');
+  const [immFilter, setImmFilter] = useState('all');
+  const [expandedId, setExpandedId] = useState(null);
+  const [ref, isVisible] = useInView();
+
+  let filtered = DATA.medals;
+  if (filter !== 'all') filtered = filtered.filter(m => m.medal.toLowerCase() === filter);
+  if (immFilter === 'immigrant') filtered = filtered.filter(m => m.immigrant_involved);
+  if (immFilter === 'non-immigrant') filtered = filtered.filter(m => !m.immigrant_involved);
+
+  return (
+    <section className="section" id="medals" ref={ref}>
+      <div className="container">
+        <div className={`section-header reveal ${isVisible ? 'visible' : ''}`}>
+          <h2>Explore by Medals</h2>
+          <p>All {DATA.metadata.total_us_medals} US medals from Milano Cortina. Click any medal to see the full roster.</p>
+        </div>
+        <div className="filter-bar">
+          {['all','gold','silver','bronze'].map(f => (
+            <button key={f} className={`filter-btn ${filter === f ? 'active' : ''}`}
+                    onClick={() => setFilter(f)}>
+              {f === 'all' ? 'All Medals' : f.charAt(0).toUpperCase() + f.slice(1)}
+              {f === 'gold' && ' (12)'}
+              {f === 'silver' && ' (12)'}
+              {f === 'bronze' && ' (9)'}
+            </button>
+          ))}
+          <span style={{ width: 1, height: 28, background: '#d0dbdd', margin: '0 4px' }}></span>
+          {['all','immigrant','non-immigrant'].map(f => (
+            <button key={f} className={`filter-btn ${immFilter === f ? 'active' : ''}`}
+                    onClick={() => setImmFilter(f)}>
+              {f === 'all' ? 'All' : f === 'immigrant' ? 'Immigrant-Connected (11)' : 'Other (22)'}
+            </button>
+          ))}
+        </div>
+        <div className="medal-grid">
+          {filtered.map(m => (
+            <MedalCard key={m.id} medal={m}
+                       expanded={expandedId === m.id}
+                       onClick={() => setExpandedId(expandedId === m.id ? null : m.id)} />
+          ))}
+        </div>
+
+        {/* Callout stories */}
+        <div className="callout-strip">
+          {DATA.narrative_callouts.slice(0, 3).map(c => (
+            <div key={c.id} className="callout-card">
+              <h3>{c.title}</h3>
+              <p>{c.text}</p>
+              <div className="callout-stat">{c.stat}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== ATHLETES SECTION =====
+function AthleteCard({ athlete }) {
+  return (
+    <div className="athlete-card">
+      <div className="athlete-header">
+        <div className="athlete-name">{athlete.name}</div>
+        <div className="athlete-flag">{athlete.origin_flag}</div>
+      </div>
+      <div className="athlete-meta">
+        <span className="athlete-meta-tag sport">{athlete.sport}</span>
+        <span className="athlete-meta-tag classification">{classificationLabel(athlete.classification)}</span>
+        <span className="athlete-meta-tag sport">{athlete.origin_country}</span>
+      </div>
+      <div className="athlete-medals-list">
+        {athlete.medals.map(m => (
+          <span key={m.event} className="athlete-medal-chip">
+            {medalEmoji(m.medal)} {m.event} ({m.medal})
+          </span>
+        ))}
+      </div>
+      <p className="athlete-story">{athlete.story}</p>
+    </div>
+  );
+}
+
+function AthletesSection() {
+  const [filterCountry, setFilterCountry] = useState('all');
+  const [filterClass, setFilterClass] = useState('all');
+  const [ref, isVisible] = useInView();
+
+  const countries = [...new Set(DATA.immigrant_athletes.map(a => a.origin_country))];
+  const classes = [...new Set(DATA.immigrant_athletes.map(a => a.classification))];
+
+  let athletes = DATA.immigrant_athletes;
+  if (filterCountry !== 'all') athletes = athletes.filter(a => a.origin_country === filterCountry);
+  if (filterClass !== 'all') athletes = athletes.filter(a => a.classification === filterClass);
+
+  return (
+    <section className="section section-alt" id="athletes" ref={ref}>
+      <div className="container">
+        <div className={`section-header reveal ${isVisible ? 'visible' : ''}`}>
+          <h2>Athlete Stories</h2>
+          <p>The 14 immigrant-connected athletes who medaled at the 2026 Winter Olympics, and the stories behind their families.</p>
+        </div>
+        <div className="filter-bar">
+          <button className={`filter-btn ${filterCountry === 'all' ? 'active' : ''}`}
+                  onClick={() => setFilterCountry('all')}>All Countries</button>
+          {countries.map(c => (
+            <button key={c} className={`filter-btn ${filterCountry === c ? 'active' : ''}`}
+                    onClick={() => setFilterCountry(c)}>
+              {DATA.origin_countries.find(oc => oc.country === c)?.flag} {c}
+            </button>
+          ))}
+        </div>
+        <div className="filter-bar" style={{ marginTop: -16 }}>
+          <button className={`filter-btn ${filterClass === 'all' ? 'active' : ''}`}
+                  onClick={() => setFilterClass('all')}>All Types</button>
+          {classes.map(c => (
+            <button key={c} className={`filter-btn ${filterClass === c ? 'active' : ''}`}
+                    onClick={() => setFilterClass(c)}>
+              {classificationLabel(c)}
+            </button>
+          ))}
+        </div>
+        <div className="athlete-grid">
+          {athletes.map(a => <AthleteCard key={a.name} athlete={a} />)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== HERITAGE / ORIGIN SECTION =====
+function HeritageBubbles() {
+  const maxCount = Math.max(...DATA.origin_countries.map(c => c.athlete_count));
+  return (
+    <div className="world-viz">
+      {DATA.origin_countries.map(c => {
+        const size = 60 + (c.athlete_count / maxCount) * 100;
+        return (
+          <div key={c.country} className="country-bubble">
+            <div className="bubble-circle" style={{ width: size, height: size, fontSize: size * 0.4 }}>
+              <span className="flag-emoji">{c.flag}</span>
+            </div>
+            <div className="bubble-label">{c.country}</div>
+            <div className="bubble-count">{c.athlete_count} athlete{c.athlete_count > 1 ? 's' : ''}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function HeritageSection() {
+  const [expandedCountry, setExpandedCountry] = useState(null);
+  const [ref, isVisible] = useInView();
+
+  return (
+    <section className="section" id="heritage" ref={ref}>
+      <div className="container">
+        <div className={`section-header reveal ${isVisible ? 'visible' : ''}`}>
+          <h2>Explore by Heritage</h2>
+          <p>Nine countries across four continents. The roots behind America's Olympic success.</p>
+        </div>
+        <HeritageBubbles />
+        <div className="heritage-grid">
+          {DATA.origin_countries.map(c => (
+            <div key={c.country}
+                 className="heritage-card"
+                 onClick={() => setExpandedCountry(expandedCountry === c.country ? null : c.country)}>
+              <div className="heritage-top">
+                <div className="heritage-flag">{c.flag}</div>
+                <div>
+                  <div className="heritage-country">{c.country}</div>
+                  <div className="heritage-continent">{c.continent}</div>
+                </div>
+                <div style={{ marginLeft: 'auto' }}>
+                  <div className="heritage-count">{c.athlete_count}</div>
+                  <div style={{ fontSize: '0.72rem', color: '#78a0a3' }}>athlete{c.athlete_count > 1 ? 's' : ''}</div>
+                </div>
+              </div>
+              {(expandedCountry === c.country) && (
+                <div className="heritage-athletes">
+                  {c.athletes.map(name => {
+                    const athlete = DATA.immigrant_athletes.find(a => a.name === name);
+                    return (
+                      <div key={name} className="heritage-athlete-name">
+                        {name} &mdash; {athlete?.sport}
+                        {athlete?.medals.map(m => ` ${medalEmoji(m.medal)}`)}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== SPORT SECTION =====
+function SportSection() {
+  const [expandedSport, setExpandedSport] = useState(null);
+  const [ref, isVisible] = useInView();
+  const sorted = [...DATA.sport_breakdown].sort((a, b) => b.pct - a.pct);
+
+  return (
+    <section className="section section-alt" id="sports" ref={ref}>
+      <div className="container">
+        <div className={`section-header reveal ${isVisible ? 'visible' : ''}`}>
+          <h2>Explore by Sport</h2>
+          <p>Immigrant representation across the 11 medal-winning sports.</p>
+        </div>
+        <div className="sport-bars">
+          {sorted.map(s => {
+            const barWidth = Math.max(s.pct, 2);
+            const isExpanded = expandedSport === s.sport;
+            const sportMedals = DATA.medals.filter(m => m.sport === s.sport);
+            const immAthletes = sportMedals.flatMap(m => m.athletes.filter(a => a.immigrant));
+            const uniqueImm = [...new Map(immAthletes.map(a => [a.name, a])).values()];
+
+            return (
+              <div key={s.sport}>
+                <div className="sport-bar-row"
+                     onClick={() => setExpandedSport(isExpanded ? null : s.sport)}
+                     role="button" tabIndex={0}
+                     onKeyDown={e => e.key === 'Enter' && setExpandedSport(isExpanded ? null : s.sport)}>
+                  <div className="sport-bar-label">{s.sport}</div>
+                  <div className="sport-bar-track">
+                    <div className={`sport-bar-fill ${s.pct > 0 ? 'immigrant' : 'total'}`}
+                         style={{ width: `${Math.max(barWidth, 4)}%` }}>
+                      {s.pct > 8 && <span className="sport-bar-pct">{s.pct}%</span>}
+                    </div>
+                  </div>
+                  <div className="sport-bar-detail">
+                    {s.immigrant_count}/{s.total_medalists} athletes
+                    {s.pct > 0 && s.pct <= 8 && <span style={{ marginLeft: 4 }}>({s.pct}%)</span>}
+                  </div>
+                </div>
+                {isExpanded && (
+                  <div className="sport-expanded">
+                    {uniqueImm.length > 0 ? uniqueImm.map(a => (
+                      <div key={a.name} className="sport-expanded-athlete imm">
+                        {DATA.immigrant_athletes.find(ia => ia.name === a.name)?.origin_flag} {a.name}
+                      </div>
+                    )) : (
+                      <div className="sport-expanded-athlete" style={{ color: '#78a0a3' }}>
+                        No immigrant-connected medalists in this sport
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Additional callouts */}
+        <div className="callout-strip" style={{ marginTop: 48 }}>
+          {DATA.narrative_callouts.slice(3).map(c => (
+            <div key={c.id} className="callout-card">
+              <h3>{c.title}</h3>
+              <p>{c.text}</p>
+              <div className="callout-stat">{c.stat}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== METHODOLOGY =====
+function Methodology() {
+  return (
+    <section className="methodology" id="methodology">
+      <div className="container">
+        <h3>Methodology</h3>
+        <p><strong>How "immigrant-connected" is defined:</strong> An athlete is classified as immigrant-connected if they were born outside the United States, or if at least one of their parents was born outside the United States.</p>
+        <p><strong>Evidence standard:</strong> Classifications are based on documented parental birthplaces from public records, athlete interviews, and biographical sources. Surname ethnicity and heritage labels alone are not evidence.</p>
+        <p><strong>Conservative approach:</strong> Five athletes whose parental backgrounds could not be determined were conservatively classified as not immigrant-connected. The true number of immigrant-connected medalists may be higher.</p>
+        <p className="source">Research conducted by the Niskanen Center, February 2026</p>
+        <p style={{ fontSize: '0.78rem', marginTop: 24, color: '#4a6a6e' }}>Data covers all {DATA.metadata.total_us_medals} US medals and {DATA.metadata.total_unique_medalists} unique medalists at the {DATA.metadata.games} ({DATA.metadata.date_range}).</p>
+      </div>
+    </section>
+  );
+}
+
+// ===== NAV =====
+function Nav() {
+  const [active, setActive] = useState('top');
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const sections = ['top','medals','athletes','heritage','sports','methodology'];
+    const handler = () => {
+      const scrollY = window.scrollY + 100;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && el.offsetTop <= scrollY) {
+          setActive(sections[i]);
+          break;
+        }
+      }
+    };
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
+
+  const links = [
+    { id: 'top', label: 'Overview' },
+    { id: 'medals', label: 'Medals' },
+    { id: 'athletes', label: 'Athletes' },
+    { id: 'heritage', label: 'Heritage' },
+    { id: 'sports', label: 'Sports' },
+    { id: 'methodology', label: 'Methodology' }
+  ];
+
+  return (
+    <>
+      <nav className="site-nav" role="navigation" aria-label="Main navigation">
+        <div className="container">
+          <div className="nav-brand">Niskanen Center</div>
+          <div className="nav-links">
+            {links.map(l => (
+              <a key={l.id} href={`#${l.id}`}
+                 className={active === l.id ? 'active' : ''}
+                 onClick={() => setMobileOpen(false)}>
+                {l.label}
+              </a>
+            ))}
+          </div>
+          <button className="mobile-nav-toggle" onClick={() => setMobileOpen(!mobileOpen)}
+                  aria-label="Toggle navigation menu">
+            {mobileOpen ? '\u2715' : '\u2630'}
+          </button>
+        </div>
+      </nav>
+      <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
+        {links.map(l => (
+          <a key={l.id} href={`#${l.id}`}
+             className={active === l.id ? 'active' : ''}
+             onClick={() => setMobileOpen(false)}>
+            {l.label}
+          </a>
+        ))}
+      </div>
+    </>
+  );
+}
+
+// ===== APP =====
+function App() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <MedalsSection />
+        <AthletesSection />
+        <HeritageSection />
+        <SportSection />
+        <Methodology />
+      </main>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

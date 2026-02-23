@@ -1,0 +1,815 @@
+{
+  "metadata": {
+    "title": "Immigrant Contributions to US Olympic Success — 2026 Milano Cortina",
+    "subtitle": "How immigrants and their children powered America's best Winter Olympics ever",
+    "source": "Niskanen Center",
+    "methodology_note": "Athletes classified by parental birthplace. 'Immigrant-connected' = athlete is foreign-born, or has at least one parent born outside the US. Surname ethnicity and heritage labels alone are not evidence — classifications require documented parental birthplaces.",
+    "games": "2026 Milano Cortina Winter Olympics",
+    "date_range": "February 6–22, 2026",
+    "total_us_medals": 33,
+    "total_us_gold": 12,
+    "total_us_silver": 12,
+    "total_us_bronze": 9,
+    "total_unique_medalists": 82,
+    "total_immigrant_connected": 14,
+    "immigrant_pct": 17.1,
+    "record_note": "The US won a record 12 gold medals, breaking the previous Winter Olympics record. The men's hockey gold was the first since the 1980 'Miracle on Ice.'"
+  },
+
+  "headline_stats": {
+    "athlete_level": {
+      "immigrant_connected": 14,
+      "total": 82,
+      "pct": 17.1,
+      "label": "1 in 6 US medalists has an immigrant parent or is an immigrant"
+    },
+    "gold_medal_involvement": {
+      "golds_with_immigrant": 6,
+      "total_golds": 12,
+      "pct": 50.0,
+      "label": "Half of all US gold medals involved immigrant-connected athletes"
+    },
+    "medal_level_any_involvement": {
+      "medals_with_immigrant": 11,
+      "total_medals": 33,
+      "pct": 33.3,
+      "label": "1 in 3 US medals involved an immigrant-connected athlete"
+    },
+    "individual_medals_only": {
+      "immigrant_medals": 8,
+      "total_individual_medals": 23,
+      "pct": 34.8,
+      "label": "More than 1 in 3 individual medals won by immigrant-connected athletes"
+    },
+    "countries_represented": {
+      "count": 9,
+      "label": "Immigrant parents from 9 different countries across 4 continents"
+    }
+  },
+
+  "origin_countries": [
+    { "country": "Canada", "flag": "🇨🇦", "continent": "North America", "athlete_count": 6, "athletes": ["Kaillie Humphries", "Brady Tkachuk", "Matthew Tkachuk", "Tage Thompson", "Dylan Larkin", "Jake Sanderson"] },
+    { "country": "South Korea", "flag": "🇰🇷", "continent": "Asia", "athlete_count": 1, "athletes": ["Chloe Kim"] },
+    { "country": "Russia", "flag": "🇷🇺", "continent": "Europe", "athlete_count": 1, "athletes": ["Ilia Malinin"] },
+    { "country": "China", "flag": "🇨🇳", "continent": "Asia", "athlete_count": 1, "athletes": ["Alysa Liu"] },
+    { "country": "Mexico", "flag": "🇲🇽", "continent": "North America", "athlete_count": 1, "athletes": ["Auston Matthews"] },
+    { "country": "Germany", "flag": "🇩🇪", "continent": "Europe", "athlete_count": 1, "athletes": ["Jordan Stolz"] },
+    { "country": "Japan", "flag": "🇯🇵", "continent": "Asia", "athlete_count": 1, "athletes": ["Ellie Kam"] },
+    { "country": "Italy", "flag": "🇮🇹", "continent": "Europe", "athlete_count": 1, "athletes": ["Alex Hall"] },
+    { "country": "Argentina", "flag": "🇦🇷", "continent": "South America", "athlete_count": 1, "athletes": ["Alex Ferreira"] }
+  ],
+
+  "immigrant_athletes": [
+    {
+      "name": "Kaillie Humphries",
+      "sport": "Bobsled",
+      "classification": "FOREIGN_BORN",
+      "origin_country": "Canada",
+      "origin_flag": "🇨🇦",
+      "parent_detail": "Born in Calgary, Alberta, Canada. Became US citizen in 2021.",
+      "medals": [
+        { "event": "Women's Monobob", "medal": "Bronze", "event_type": "individual" },
+        { "event": "Women's 2-Woman", "medal": "Bronze", "event_type": "pair" }
+      ],
+      "medal_count": 2,
+      "story": "Born and raised in Canada, Humphries won gold for Canada in 2010 and 2014 before switching allegiance to the US. She became a US citizen in 2021 and won monobob gold at the 2022 Beijing Olympics — the first woman to win Olympic bobsled gold for two different countries."
+    },
+    {
+      "name": "Chloe Kim",
+      "sport": "Snowboard",
+      "classification": "TWO_IMMIGRANT_PARENTS",
+      "origin_country": "South Korea",
+      "origin_flag": "🇰🇷",
+      "parent_detail": "Both parents immigrated from South Korea. Father Jong Jin Kim came to the US in 1982 with $800.",
+      "medals": [
+        { "event": "Women's Halfpipe", "medal": "Silver", "event_type": "individual" }
+      ],
+      "medal_count": 1,
+      "story": "The daughter of South Korean immigrants, Chloe's father Jong Jin worked multiple jobs to fund her snowboarding career. She won halfpipe gold at age 17 in 2018 and again in 2022, becoming the most dominant halfpipe rider in history."
+    },
+    {
+      "name": "Ilia Malinin",
+      "sport": "Figure Skating",
+      "classification": "TWO_IMMIGRANT_PARENTS",
+      "origin_country": "Russia",
+      "origin_flag": "🇷🇺",
+      "parent_detail": "Both parents — Tatiana Malinina and Roman Skorniakov — are former competitive figure skaters from Russia.",
+      "medals": [
+        { "event": "Team Event", "medal": "Gold", "event_type": "team" }
+      ],
+      "medal_count": 1,
+      "story": "Known as the 'Quad God,' Malinin is the son of two Russian figure skaters who moved to the US. He landed the first ratified quadruple axel in competition history in 2022, a jump many thought physically impossible."
+    },
+    {
+      "name": "Jake Sanderson",
+      "sport": "Ice Hockey",
+      "classification": "TWO_IMMIGRANT_PARENTS",
+      "origin_country": "Canada",
+      "origin_flag": "🇨🇦",
+      "parent_detail": "Father Geoff Sanderson born in Hay River, Northwest Territories, Canada. Mother also from the Edmonton/St. Albert area, Canada.",
+      "medals": [
+        { "event": "Men's Tournament", "medal": "Gold", "event_type": "team" }
+      ],
+      "medal_count": 1,
+      "story": "Both of Sanderson's parents are Canadian. His father Geoff played 17 seasons in the NHL after being born in one of Canada's most remote communities — Hay River, Northwest Territories, population 3,500."
+    },
+    {
+      "name": "Alysa Liu",
+      "sport": "Figure Skating",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "China",
+      "origin_flag": "🇨🇳",
+      "parent_detail": "Father Arthur Liu immigrated from Sichuan Province, China. He is a lawyer who survived the Tiananmen Square protests.",
+      "medals": [
+        { "event": "Women's Singles", "medal": "Gold", "event_type": "individual" },
+        { "event": "Team Event", "medal": "Gold", "event_type": "team" }
+      ],
+      "medal_count": 2,
+      "story": "Liu's father Arthur survived the 1989 Tiananmen Square massacre in China before immigrating to the US. Alysa became the youngest US women's champion at age 13 in 2019 and won individual Olympic gold in 2026."
+    },
+    {
+      "name": "Jordan Stolz",
+      "sport": "Speed Skating",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "Germany",
+      "origin_flag": "🇩🇪",
+      "parent_detail": "Father Dirk Stolz was born in Germany.",
+      "medals": [
+        { "event": "Men's 1000m", "medal": "Gold", "event_type": "individual" },
+        { "event": "Men's 500m", "medal": "Gold", "event_type": "individual" },
+        { "event": "Men's 1500m", "medal": "Silver", "event_type": "individual" }
+      ],
+      "medal_count": 3,
+      "story": "The son of a German-born father, Stolz was the breakout star of the 2026 Games. At just 20 years old, he won 3 medals including 2 golds, accounting for 9% of all US medals by himself — the most dominant individual US performance at any Winter Olympics in decades."
+    },
+    {
+      "name": "Ellie Kam",
+      "sport": "Figure Skating",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "Japan",
+      "origin_flag": "🇯🇵",
+      "parent_detail": "Mother born in Japan.",
+      "medals": [
+        { "event": "Team Event", "medal": "Gold", "event_type": "team" }
+      ],
+      "medal_count": 1,
+      "story": "Kam's mother was born in Japan. Ellie competed as a pairs skater on the US figure skating team that won gold in the team event."
+    },
+    {
+      "name": "Alex Hall",
+      "sport": "Freestyle Skiing",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "Italy",
+      "origin_flag": "🇮🇹",
+      "parent_detail": "Mother born in Italy.",
+      "medals": [
+        { "event": "Men's Slopestyle", "medal": "Silver", "event_type": "individual" }
+      ],
+      "medal_count": 1,
+      "story": "Hall's mother was born in Italy. Alex won silver in freestyle slopestyle, building on his reputation as one of the most creative skiers in the sport."
+    },
+    {
+      "name": "Alex Ferreira",
+      "sport": "Freestyle Skiing",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "Argentina",
+      "origin_flag": "🇦🇷",
+      "parent_detail": "Father Marcelo Ferreira was born in Argentina and played professional soccer.",
+      "medals": [
+        { "event": "Men's Halfpipe", "medal": "Gold", "event_type": "individual" }
+      ],
+      "medal_count": 1,
+      "story": "Ferreira's father Marcelo came to the US from Argentina, where he had been a professional soccer player. Alex grew up in Aspen, CO and won gold in the freestyle halfpipe event."
+    },
+    {
+      "name": "Auston Matthews",
+      "sport": "Ice Hockey",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "Mexico",
+      "origin_flag": "🇲🇽",
+      "parent_detail": "Mother Ema Matthews (née Lopez) born in Hermosillo, Sonora, Mexico.",
+      "medals": [
+        { "event": "Men's Tournament", "medal": "Gold", "event_type": "team" }
+      ],
+      "medal_count": 1,
+      "story": "The captain of the gold-medal winning US men's hockey team, Matthews' mother Ema immigrated from Hermosillo, Mexico. He grew up in Scottsdale, AZ and fell in love with hockey after his mother took him to a Coyotes game. Matthews assisted on the opening goal in the gold medal final — the first US men's hockey gold since the 1980 'Miracle on Ice.'"
+    },
+    {
+      "name": "Brady Tkachuk",
+      "sport": "Ice Hockey",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "Canada",
+      "origin_flag": "🇨🇦",
+      "parent_detail": "Mother Chantal Oster born in Winnipeg, Manitoba, Canada. Father Keith Tkachuk born in Melrose, MA.",
+      "medals": [
+        { "event": "Men's Tournament", "medal": "Gold", "event_type": "team" }
+      ],
+      "medal_count": 1,
+      "story": "Brady's mother Chantal grew up in Winnipeg, Canada, and met his father Keith — a US-born NHL star — when Keith played for the Winnipeg Jets. Brady and his brother Matthew both made the gold-medal US roster."
+    },
+    {
+      "name": "Matthew Tkachuk",
+      "sport": "Ice Hockey",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "Canada",
+      "origin_flag": "🇨🇦",
+      "parent_detail": "Mother Chantal Oster born in Winnipeg, Manitoba, Canada. Father Keith Tkachuk born in Melrose, MA.",
+      "medals": [
+        { "event": "Men's Tournament", "medal": "Gold", "event_type": "team" }
+      ],
+      "medal_count": 1,
+      "story": "Like his brother Brady, Matthew's mother Chantal is from Winnipeg, Canada. Matthew plays for the Florida Panthers and was part of the historic gold-medal US hockey team."
+    },
+    {
+      "name": "Tage Thompson",
+      "sport": "Ice Hockey",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "Canada",
+      "origin_flag": "🇨🇦",
+      "parent_detail": "Father Brent Thompson born in Calgary, Alberta, Canada.",
+      "medals": [
+        { "event": "Men's Tournament", "medal": "Gold", "event_type": "team" }
+      ],
+      "medal_count": 1,
+      "story": "Thompson's father Brent was born in Calgary and played professional hockey in North America. Tage grew up in Orange, CT and became one of the NHL's most dangerous scorers before helping the US win gold."
+    },
+    {
+      "name": "Dylan Larkin",
+      "sport": "Ice Hockey",
+      "classification": "ONE_IMMIGRANT_PARENT",
+      "origin_country": "Canada",
+      "origin_flag": "🇨🇦",
+      "parent_detail": "Father Kevin Larkin born in Scarborough, Ontario, Canada.",
+      "medals": [
+        { "event": "Men's Tournament", "medal": "Gold", "event_type": "team" }
+      ],
+      "medal_count": 1,
+      "story": "Larkin's father Kevin grew up in Scarborough, Ontario, Canada before moving to the US. Dylan became captain of the Detroit Red Wings and was part of the gold-medal US hockey roster."
+    }
+  ],
+
+  "medals": [
+    {
+      "id": 1,
+      "event": "Women's Downhill",
+      "sport": "Alpine Skiing",
+      "medal": "Gold",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Breezy Johnson", "immigrant": false }]
+    },
+    {
+      "id": 2,
+      "event": "Team Event",
+      "sport": "Figure Skating",
+      "medal": "Gold",
+      "event_type": "team",
+      "roster_size": 7,
+      "immigrant_count": 3,
+      "immigrant_pct": 42.9,
+      "immigrant_involved": true,
+      "athletes": [
+        { "name": "Ilia Malinin", "immigrant": true, "origin": "Russia" },
+        { "name": "Alysa Liu", "immigrant": true, "origin": "China" },
+        { "name": "Ellie Kam", "immigrant": true, "origin": "Japan" },
+        { "name": "Amber Glenn", "immigrant": false },
+        { "name": "Daniel O'Shea", "immigrant": false },
+        { "name": "Madison Chock", "immigrant": false },
+        { "name": "Evan Bates", "immigrant": false }
+      ]
+    },
+    {
+      "id": 3,
+      "event": "Women's Moguls",
+      "sport": "Freestyle Skiing",
+      "medal": "Gold",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Elizabeth Lemley", "immigrant": false }]
+    },
+    {
+      "id": 4,
+      "event": "Men's 1000m",
+      "sport": "Speed Skating",
+      "medal": "Gold",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 1,
+      "immigrant_pct": 100,
+      "immigrant_involved": true,
+      "athletes": [{ "name": "Jordan Stolz", "immigrant": true, "origin": "Germany" }]
+    },
+    {
+      "id": 5,
+      "event": "Women's Monobob",
+      "sport": "Bobsled",
+      "medal": "Gold",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Elana Meyers Taylor", "immigrant": false }]
+    },
+    {
+      "id": 6,
+      "event": "Men's 500m",
+      "sport": "Speed Skating",
+      "medal": "Gold",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 1,
+      "immigrant_pct": 100,
+      "immigrant_involved": true,
+      "athletes": [{ "name": "Jordan Stolz", "immigrant": true, "origin": "Germany" }]
+    },
+    {
+      "id": 7,
+      "event": "Women's Slalom",
+      "sport": "Alpine Skiing",
+      "medal": "Gold",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Mikaela Shiffrin", "immigrant": false }]
+    },
+    {
+      "id": 8,
+      "event": "Women's Tournament",
+      "sport": "Ice Hockey",
+      "medal": "Gold",
+      "event_type": "team",
+      "roster_size": 23,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [
+        { "name": "Cayla Barnes", "immigrant": false },
+        { "name": "Hannah Bilka", "immigrant": false },
+        { "name": "Alex Carpenter", "immigrant": false },
+        { "name": "Kendall Coyne Schofield", "immigrant": false },
+        { "name": "Britta Curl-Salemme", "immigrant": false },
+        { "name": "Joy Dunne", "immigrant": false },
+        { "name": "Laila Edwards", "immigrant": false },
+        { "name": "Aerin Frankel", "immigrant": false },
+        { "name": "Rory Guilday", "immigrant": false },
+        { "name": "Caroline Harvey", "immigrant": false },
+        { "name": "Taylor Heise", "immigrant": false },
+        { "name": "Tessa Janecke", "immigrant": false },
+        { "name": "Megan Keller", "immigrant": false },
+        { "name": "Hilary Knight", "immigrant": false },
+        { "name": "Ava McNaughton", "immigrant": false },
+        { "name": "Abbey Murphy", "immigrant": false },
+        { "name": "Kelly Pannek", "immigrant": false },
+        { "name": "Gwyneth Philips", "immigrant": false },
+        { "name": "Hayley Scamurra", "immigrant": false },
+        { "name": "Kirsten Simms", "immigrant": false },
+        { "name": "Lee Stecklein", "immigrant": false },
+        { "name": "Haley Winn", "immigrant": false },
+        { "name": "Grace Zumwinkle", "immigrant": false }
+      ]
+    },
+    {
+      "id": 9,
+      "event": "Women's Singles",
+      "sport": "Figure Skating",
+      "medal": "Gold",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 1,
+      "immigrant_pct": 100,
+      "immigrant_involved": true,
+      "athletes": [{ "name": "Alysa Liu", "immigrant": true, "origin": "China" }]
+    },
+    {
+      "id": 10,
+      "event": "Men's Halfpipe",
+      "sport": "Freestyle Skiing",
+      "medal": "Gold",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 1,
+      "immigrant_pct": 100,
+      "immigrant_involved": true,
+      "athletes": [{ "name": "Alex Ferreira", "immigrant": true, "origin": "Argentina" }]
+    },
+    {
+      "id": 11,
+      "event": "Mixed Team Aerials",
+      "sport": "Freestyle Skiing",
+      "medal": "Gold",
+      "event_type": "team",
+      "roster_size": 3,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [
+        { "name": "Christopher Lillis", "immigrant": false },
+        { "name": "Winter Vinecki", "immigrant": false },
+        { "name": "Eric Loughran", "immigrant": false }
+      ]
+    },
+    {
+      "id": 12,
+      "event": "Men's Tournament",
+      "sport": "Ice Hockey",
+      "medal": "Gold",
+      "event_type": "team",
+      "roster_size": 25,
+      "immigrant_count": 6,
+      "immigrant_pct": 24,
+      "immigrant_involved": true,
+      "athletes": [
+        { "name": "Auston Matthews", "immigrant": true, "origin": "Mexico", "note": "Captain" },
+        { "name": "Brady Tkachuk", "immigrant": true, "origin": "Canada" },
+        { "name": "Matthew Tkachuk", "immigrant": true, "origin": "Canada" },
+        { "name": "Tage Thompson", "immigrant": true, "origin": "Canada" },
+        { "name": "Dylan Larkin", "immigrant": true, "origin": "Canada" },
+        { "name": "Jake Sanderson", "immigrant": true, "origin": "Canada" },
+        { "name": "Matt Boldy", "immigrant": false },
+        { "name": "Kyle Connor", "immigrant": false },
+        { "name": "Jack Eichel", "immigrant": false },
+        { "name": "Jack Hughes", "immigrant": false },
+        { "name": "Jake Guentzel", "immigrant": false },
+        { "name": "Clayton Keller", "immigrant": false },
+        { "name": "J.T. Miller", "immigrant": false },
+        { "name": "Brock Nelson", "immigrant": false },
+        { "name": "Vincent Trocheck", "immigrant": false },
+        { "name": "Brock Faber", "immigrant": false },
+        { "name": "Noah Hanifin", "immigrant": false },
+        { "name": "Quinn Hughes", "immigrant": false },
+        { "name": "Jackson LaCombe", "immigrant": false },
+        { "name": "Charlie McAvoy", "immigrant": false },
+        { "name": "Jaccob Slavin", "immigrant": false },
+        { "name": "Zach Werenski", "immigrant": false },
+        { "name": "Connor Hellebuyck", "immigrant": false },
+        { "name": "Jake Oettinger", "immigrant": false },
+        { "name": "Jeremy Swayman", "immigrant": false }
+      ]
+    },
+    {
+      "id": 13,
+      "event": "Women's Moguls",
+      "sport": "Freestyle Skiing",
+      "medal": "Silver",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Jaelin Kauf", "immigrant": false }]
+    },
+    {
+      "id": 14,
+      "event": "Men's Slopestyle",
+      "sport": "Freestyle Skiing",
+      "medal": "Silver",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 1,
+      "immigrant_pct": 100,
+      "immigrant_involved": true,
+      "athletes": [{ "name": "Alex Hall", "immigrant": true, "origin": "Italy" }]
+    },
+    {
+      "id": 15,
+      "event": "Men's Big Air",
+      "sport": "Freestyle Skiing",
+      "medal": "Silver",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Mac Forehand", "immigrant": false }]
+    },
+    {
+      "id": 16,
+      "event": "Women's Dual Moguls",
+      "sport": "Freestyle Skiing",
+      "medal": "Silver",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Jaelin Kauf", "immigrant": false }]
+    },
+    {
+      "id": 17,
+      "event": "Men's 1500m",
+      "sport": "Speed Skating",
+      "medal": "Silver",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 1,
+      "immigrant_pct": 100,
+      "immigrant_involved": true,
+      "athletes": [{ "name": "Jordan Stolz", "immigrant": true, "origin": "Germany" }]
+    },
+    {
+      "id": 18,
+      "event": "Men's Team Pursuit",
+      "sport": "Speed Skating",
+      "medal": "Silver",
+      "event_type": "team",
+      "roster_size": 4,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [
+        { "name": "Ethan Cepuran", "immigrant": false },
+        { "name": "Casey Dawson", "immigrant": false },
+        { "name": "Emery Lehman", "immigrant": false },
+        { "name": "Conor McDermott-Mostowy", "immigrant": false }
+      ]
+    },
+    {
+      "id": 19,
+      "event": "Ice Dance",
+      "sport": "Figure Skating",
+      "medal": "Silver",
+      "event_type": "pair",
+      "roster_size": 2,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [
+        { "name": "Madison Chock", "immigrant": false },
+        { "name": "Evan Bates", "immigrant": false }
+      ]
+    },
+    {
+      "id": 20,
+      "event": "Men's Super-G",
+      "sport": "Alpine Skiing",
+      "medal": "Silver",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Ryan Cochran-Siegle", "immigrant": false }]
+    },
+    {
+      "id": 21,
+      "event": "Men's Sprint Classic",
+      "sport": "Cross-Country Skiing",
+      "medal": "Silver",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Ben Ogden", "immigrant": false }]
+    },
+    {
+      "id": 22,
+      "event": "Men's Team Sprint",
+      "sport": "Cross-Country Skiing",
+      "medal": "Silver",
+      "event_type": "pair",
+      "roster_size": 2,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [
+        { "name": "Ben Ogden", "immigrant": false },
+        { "name": "Gus Schumacher", "immigrant": false }
+      ]
+    },
+    {
+      "id": 23,
+      "event": "Women's Halfpipe",
+      "sport": "Snowboard",
+      "medal": "Silver",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 1,
+      "immigrant_pct": 100,
+      "immigrant_involved": true,
+      "athletes": [{ "name": "Chloe Kim", "immigrant": true, "origin": "South Korea" }]
+    },
+    {
+      "id": 24,
+      "event": "Mixed Doubles",
+      "sport": "Curling",
+      "medal": "Silver",
+      "event_type": "pair",
+      "roster_size": 2,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [
+        { "name": "Cory Thiesse", "immigrant": false },
+        { "name": "Korey Dropkin", "immigrant": false }
+      ]
+    },
+    {
+      "id": 25,
+      "event": "Women's Team Combined",
+      "sport": "Alpine Skiing",
+      "medal": "Bronze",
+      "event_type": "pair",
+      "roster_size": 2,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [
+        { "name": "Jacqueline Wiles", "immigrant": false },
+        { "name": "Paula Moltzan", "immigrant": false }
+      ]
+    },
+    {
+      "id": 26,
+      "event": "Women's Monobob",
+      "sport": "Bobsled",
+      "medal": "Bronze",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 1,
+      "immigrant_pct": 100,
+      "immigrant_involved": true,
+      "athletes": [{ "name": "Kaillie Humphries", "immigrant": true, "origin": "Canada" }]
+    },
+    {
+      "id": 27,
+      "event": "Women's 2-Woman",
+      "sport": "Bobsled",
+      "medal": "Bronze",
+      "event_type": "pair",
+      "roster_size": 2,
+      "immigrant_count": 1,
+      "immigrant_pct": 50,
+      "immigrant_involved": true,
+      "athletes": [
+        { "name": "Kaillie Humphries", "immigrant": true, "origin": "Canada" },
+        { "name": "Jasmine Jones", "immigrant": false }
+      ]
+    },
+    {
+      "id": 28,
+      "event": "Women's 10km",
+      "sport": "Cross-Country Skiing",
+      "medal": "Bronze",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Jessie Diggins", "immigrant": false }]
+    },
+    {
+      "id": 29,
+      "event": "Women's Dual Moguls",
+      "sport": "Freestyle Skiing",
+      "medal": "Bronze",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Elizabeth Lemley", "immigrant": false }]
+    },
+    {
+      "id": 30,
+      "event": "Men's Slopestyle",
+      "sport": "Snowboard",
+      "medal": "Bronze",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Jake Canter", "immigrant": false }]
+    },
+    {
+      "id": 31,
+      "event": "Women's Singles",
+      "sport": "Luge",
+      "medal": "Bronze",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Ashley Farquharson", "immigrant": false }]
+    },
+    {
+      "id": 32,
+      "event": "Women's 1500m",
+      "sport": "Short Track Speed Skating",
+      "medal": "Bronze",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Corinne Stoddard", "immigrant": false }]
+    },
+    {
+      "id": 33,
+      "event": "Women's Mass Start",
+      "sport": "Speed Skating",
+      "medal": "Bronze",
+      "event_type": "individual",
+      "roster_size": 1,
+      "immigrant_count": 0,
+      "immigrant_pct": 0,
+      "immigrant_involved": false,
+      "athletes": [{ "name": "Mia Manganello", "immigrant": false }]
+    }
+  ],
+
+  "sport_breakdown": [
+    { "sport": "Ice Hockey", "total_medalists": 48, "immigrant_count": 6, "pct": 12.5, "medals": 2, "immigrant_medals": 1 },
+    { "sport": "Figure Skating", "total_medalists": 9, "immigrant_count": 3, "pct": 33.3, "medals": 3, "immigrant_medals": 2 },
+    { "sport": "Speed Skating", "total_medalists": 6, "immigrant_count": 1, "pct": 16.7, "medals": 4, "immigrant_medals": 3 },
+    { "sport": "Freestyle Skiing", "total_medalists": 8, "immigrant_count": 2, "pct": 25.0, "medals": 7, "immigrant_medals": 2 },
+    { "sport": "Alpine Skiing", "total_medalists": 5, "immigrant_count": 0, "pct": 0, "medals": 4, "immigrant_medals": 0 },
+    { "sport": "Snowboard", "total_medalists": 2, "immigrant_count": 1, "pct": 50.0, "medals": 2, "immigrant_medals": 1 },
+    { "sport": "Bobsled", "total_medalists": 3, "immigrant_count": 1, "pct": 33.3, "medals": 3, "immigrant_medals": 2 },
+    { "sport": "Cross-Country Skiing", "total_medalists": 3, "immigrant_count": 0, "pct": 0, "medals": 3, "immigrant_medals": 0 },
+    { "sport": "Curling", "total_medalists": 2, "immigrant_count": 0, "pct": 0, "medals": 1, "immigrant_medals": 0 },
+    { "sport": "Luge", "total_medalists": 1, "immigrant_count": 0, "pct": 0, "medals": 1, "immigrant_medals": 0 },
+    { "sport": "Short Track Speed Skating", "total_medalists": 1, "immigrant_count": 0, "pct": 0, "medals": 1, "immigrant_medals": 0 }
+  ],
+
+  "classification_breakdown": [
+    { "classification": "FOREIGN_BORN", "count": 1, "athletes": ["Kaillie Humphries"] },
+    { "classification": "TWO_IMMIGRANT_PARENTS", "count": 3, "athletes": ["Chloe Kim", "Ilia Malinin", "Jake Sanderson"] },
+    { "classification": "ONE_IMMIGRANT_PARENT", "count": 10, "athletes": ["Alysa Liu", "Jordan Stolz", "Ellie Kam", "Alex Hall", "Alex Ferreira", "Auston Matthews", "Brady Tkachuk", "Matthew Tkachuk", "Tage Thompson", "Dylan Larkin"] },
+    { "classification": "NO_IMMIGRANT_BACKGROUND", "count": 68, "athletes": [] },
+    { "classification": "note", "text": "68 includes 5 athletes classified UNDETERMINED who default to NO under conservative methodology" }
+  ],
+
+  "narrative_callouts": [
+    {
+      "id": "hockey_gold",
+      "title": "The New Miracle on Ice",
+      "text": "The US men's hockey team won gold for the first time since the 1980 'Miracle on Ice.' Nearly a quarter of the roster — 6 of 25 players — have at least one immigrant parent. Team captain Auston Matthews, whose mother Ema immigrated from Mexico, assisted on the opening goal in the gold medal game.",
+      "stat": "6 of 25 players (24%)",
+      "medal_id": 12
+    },
+    {
+      "id": "stolz_dominance",
+      "title": "One Man, Three Medals",
+      "text": "Jordan Stolz, son of a German-born father, won 3 medals by himself — 2 golds and a silver — accounting for 9% of all US medals at the Games. He was the most dominant individual American performer at any Winter Olympics in decades.",
+      "stat": "3 of 33 medals (9%)",
+      "athlete": "Jordan Stolz"
+    },
+    {
+      "id": "figure_skating_team",
+      "title": "Skating's Immigrant Core",
+      "text": "The US figure skating team that won gold was 43% immigrant-connected: Ilia Malinin (Russian parents), Alysa Liu (Chinese father who survived Tiananmen Square), and Ellie Kam (Japanese mother). Malinin, the 'Quad God,' landed jumps many thought physically impossible.",
+      "stat": "3 of 7 skaters (43%)",
+      "medal_id": 2
+    },
+    {
+      "id": "nine_countries",
+      "title": "Nine Countries, One Team",
+      "text": "The 14 immigrant-connected US medalists trace their roots to 9 different countries across 4 continents: Canada, Mexico, Argentina, South Korea, China, Japan, Russia, Germany, and Italy.",
+      "stat": "9 countries, 4 continents"
+    },
+    {
+      "id": "gold_half",
+      "title": "Immigrants Power Gold",
+      "text": "Immigrant-connected athletes were involved in 6 of the 12 US gold medals — exactly half. From Jordan Stolz's speed skating dominance to the figure skating team to the men's hockey roster, immigrant families were at the center of America's best Winter Olympics ever.",
+      "stat": "6 of 12 golds (50%)"
+    }
+  ],
+
+  "design": {
+    "brand": "Niskanen Center",
+    "colors": {
+      "primary_dark": "#194852",
+      "primary_medium": "#348397",
+      "primary_light": "#7dceda",
+      "primary_lightest": "#b7f6fc",
+      "primary_darkest": "#0c2a30",
+      "neutral_dark": "#78a0a3",
+      "neutral_medium": "#d0dbdd",
+      "neutral_light": "#edf1f2",
+      "white": "#ffffff",
+      "accent_gold": "#bca45e",
+      "accent_gold_light": "#f4da91",
+      "accent_warm": "#f17d3a",
+      "accent_red": "#da5831",
+      "accent_green": "#709628",
+      "accent_green_light": "#b1d955"
+    },
+    "fonts": {
+      "heading": "Neuton, Georgia, serif",
+      "body": "'Hanken Grotesk', 'Inter', sans-serif",
+      "note": "Both Neuton and Hanken Grotesk are available on Google Fonts"
+    }
+  }
+}
