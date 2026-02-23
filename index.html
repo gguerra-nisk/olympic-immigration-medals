@@ -28,15 +28,20 @@ img{max-width:100%}
 
 /* ===== NAVIGATION ===== */
 .site-nav{position:sticky;top:0;z-index:100;background:rgba(12,42,48,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(125,206,218,0.15)}
-.site-nav .container{display:flex;align-items:center;justify-content:space-between;height:60px}
-.nav-brand{font-family:var(--font-head);color:var(--ltest);font-size:1.1rem;font-weight:700;letter-spacing:0.3px}
-.nav-links{display:flex;gap:4px}
+.site-nav .container{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:60px}
+.nav-brand{font-family:var(--font-head);color:var(--ltest);font-size:1.1rem;font-weight:700;letter-spacing:0.3px;text-decoration:none;transition:var(--transition);justify-self:start}
+.nav-brand:hover{color:var(--lt)}
+.nav-links{display:flex;gap:4px;justify-self:center}
 .nav-links a{color:var(--n-md);font-size:0.82rem;font-weight:500;padding:8px 14px;border-radius:6px;transition:var(--transition);letter-spacing:0.2px}
 .nav-links a:hover,.nav-links a.active{color:var(--ltest);background:rgba(125,206,218,0.12)}
+.nav-logo{justify-self:end;display:flex;align-items:center}
+.nav-logo img{height:40px;opacity:0.9;transition:var(--transition)}
+.nav-logo:hover img{opacity:1}
 @media(max-width:768px){
   .nav-links{display:none}
   .nav-brand{font-size:0.95rem}
-  .site-nav .container{height:50px}
+  .site-nav .container{height:50px;grid-template-columns:1fr auto}
+  .nav-logo{display:none}
   .mobile-nav-toggle{display:block;background:none;border:none;color:var(--n-md);font-size:1.4rem;cursor:pointer;padding:8px}
 }
 @media(min-width:769px){.mobile-nav-toggle{display:none}}
@@ -65,6 +70,43 @@ img{max-width:100%}
 .stat-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(125,206,218,0.3);transform:translateY(-2px)}
 .stat-number{font-family:var(--font-head);font-size:2.6rem;font-weight:800;color:var(--gold-lt);line-height:1;margin-bottom:8px}
 .stat-label{font-size:0.88rem;font-weight:400;color:var(--n-md);line-height:1.4}
+
+/* ===== PODIUM ===== */
+.podium-wrapper{display:flex;flex-direction:column;align-items:center;margin-bottom:56px}
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:0;perspective:600px}
+.podium-col{display:flex;flex-direction:column;align-items:center;gap:12px}
+.podium-medals{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:0 8px;margin-bottom:8px}
+.podium-medal-dot{width:22px;height:22px;border-radius:50%;transition:transform 0.3s ease;position:relative}
+.podium-medal-dot:hover{transform:scale(1.25)}
+.podium-medal-dot.imm{box-shadow:0 0 8px rgba(125,206,218,0.6);border:2px solid var(--lt)}
+.podium-medal-dot.non{opacity:0.35;border:2px solid transparent}
+.podium-medal-dot.gold-dot{background:var(--medal-gold)}
+.podium-medal-dot.silver-dot{background:var(--medal-silver)}
+.podium-medal-dot.bronze-dot{background:var(--medal-bronze)}
+.podium-block{width:180px;border-radius:8px 8px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 12px 16px;position:relative;overflow:hidden}
+.podium-block::before{content:'';position:absolute;inset:0;opacity:0.12;background:linear-gradient(135deg,rgba(255,255,255,0.5),transparent)}
+.podium-block.gold-block{background:linear-gradient(180deg,#d4af37,#b8962e);height:210px}
+.podium-block.silver-block{background:linear-gradient(180deg,#c0c0c0,#a8a8a8);height:175px}
+.podium-block.bronze-block{background:linear-gradient(180deg,#cd7f32,#b06a28);height:140px}
+.podium-rank{font-family:var(--font-head);font-size:2.4rem;font-weight:800;color:rgba(255,255,255,0.9);line-height:1}
+.podium-label{font-family:var(--font-body);font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:1.5px;margin-top:2px}
+.podium-fraction{font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:rgba(255,255,255,0.95);margin-top:8px}
+.podium-sublabel{font-size:0.7rem;color:rgba(255,255,255,0.6);font-weight:500;margin-top:2px}
+.podium-legend{display:flex;gap:24px;margin-top:24px;justify-content:center}
+.podium-legend-item{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--n-dk);font-weight:500}
+.podium-legend-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--lt)}
+.podium-legend-dot.leg-imm{background:var(--med);box-shadow:0 0 6px rgba(125,206,218,0.5)}
+.podium-legend-dot.leg-non{background:var(--n-md);opacity:0.4;border-color:transparent}
+@media(max-width:768px){
+  .podium-block{width:110px;padding:14px 8px 12px}
+  .podium-block.gold-block{height:140px}
+  .podium-block.silver-block{height:110px}
+  .podium-block.bronze-block{height:88px}
+  .podium-rank{font-size:1.8rem}
+  .podium-fraction{font-size:1.05rem}
+  .podium-medal-dot{width:16px;height:16px}
+  .podium-medals{gap:4px}
+}
 
 /* ===== SECTION SHARED ===== */
 .section{padding:var(--section-pad)}
@@ -173,6 +215,27 @@ img{max-width:100%}
 .methodology h3{font-family:var(--font-head);font-size:1.6rem;color:var(--lt);margin-bottom:20px}
 .methodology p{font-size:0.88rem;line-height:1.7;margin-bottom:12px;max-width:700px}
 .methodology .source{font-weight:600;color:var(--gold-lt);margin-top:20px}
+
+/* ===== FOOTER CTA ===== */
+.footer-cta{background:var(--primary);padding:64px 0}
+.footer-cta-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;align-items:start}
+.footer-box{border-radius:var(--card-radius);padding:28px 24px}
+.footer-box.citation{background:rgba(188,164,94,0.15);border:1.5px solid var(--gold-acc)}
+.footer-box.citation h4{font-family:var(--font-head);font-size:1.2rem;color:var(--gold-lt);margin-bottom:12px}
+.footer-box.citation p{font-size:0.85rem;color:var(--n-md);line-height:1.65;font-style:italic}
+.footer-box.corrections{background:rgba(255,255,255,0.06);border:1.5px solid rgba(125,206,218,0.2)}
+.footer-box.corrections h4{font-family:var(--font-head);font-size:1.2rem;color:var(--lt);margin-bottom:12px}
+.footer-box.corrections p{font-size:0.85rem;color:var(--n-md);line-height:1.65}
+.footer-box.corrections a{color:var(--gold-lt);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.footer-box.corrections a:hover{color:var(--gold-acc)}
+.footer-box.subscribe{background:rgba(255,255,255,0.06);border:1.5px solid rgba(125,206,218,0.2);display:flex;flex-direction:column;align-items:center;text-align:center}
+.footer-box.subscribe h4{font-family:var(--font-head);font-size:1.2rem;color:var(--lt);margin-bottom:8px}
+.footer-box.subscribe p{font-size:0.85rem;color:var(--n-md);line-height:1.55;margin-bottom:20px}
+.subscribe-btn{display:inline-block;font-family:var(--font-body);font-weight:600;font-size:0.92rem;padding:14px 36px;border-radius:100px;background:linear-gradient(135deg,var(--gold-acc),#d4b96a);color:var(--dk);text-decoration:none;transition:var(--transition);letter-spacing:0.3px;box-shadow:0 4px 16px rgba(188,164,94,0.3)}
+.subscribe-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(188,164,94,0.45);background:linear-gradient(135deg,#d4b96a,var(--gold-lt))}
+@media(max-width:768px){
+  .footer-cta-grid{grid-template-columns:1fr;gap:16px}
+}
 
 /* ===== ANIMATIONS ===== */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
@@ -330,9 +393,8 @@ const DATA = {
   narrative_callouts: [
     {id:"hockey_gold",title:"The New Miracle on Ice",text:"The US men's hockey team won gold for the first time since the 1980 'Miracle on Ice.' Nearly a quarter of the roster \u2014 6 of 25 players \u2014 have at least one immigrant parent. Team captain Auston Matthews, whose mother Ema immigrated from Mexico, assisted on the opening goal in the gold medal game.",stat:"6 of 25 players (24%)",medal_id:12},
     {id:"stolz_dominance",title:"One Man, Three Medals",text:"Jordan Stolz, son of a German-born father, won 3 medals by himself \u2014 2 golds and a silver \u2014 accounting for 9% of all US medals at the Games. He was the most dominant individual American performer at any Winter Olympics in decades.",stat:"3 of 33 medals (9%)",athlete:"Jordan Stolz"},
-    {id:"figure_skating_team",title:"Skating's Immigrant Core",text:"The US figure skating team that won gold was 43% immigrant-connected: Ilia Malinin (Russian parents), Alysa Liu (Chinese father who survived Tiananmen Square), and Ellie Kam (Japanese mother). Malinin, the 'Quad God,' landed jumps many thought physically impossible.",stat:"3 of 7 skaters (43%)",medal_id:2},
-    {id:"nine_countries",title:"Nine Countries, One Team",text:"The 14 immigrant-connected US medalists trace their roots to 9 different countries across 4 continents: Canada, Mexico, Argentina, South Korea, China, Japan, Russia, Germany, and Italy.",stat:"9 countries, 4 continents"},
-    {id:"gold_half",title:"Immigrants Power Gold",text:"Immigrant-connected athletes were involved in 6 of the 12 US gold medals \u2014 exactly half. From Jordan Stolz's speed skating dominance to the figure skating team to the men's hockey roster, immigrant families were at the center of America's best Winter Olympics ever.",stat:"6 of 12 golds (50%)"}
+    {id:"figure_skating_team",title:"Skating's Immigrant Core",text:"43% of Team USA's award-winning figure skating team had an immigrant connection: Ilia Malinin (Russian parents), Alysa Liu (Chinese father who survived Tiananmen Square), and Ellie Kam (Japanese mother).",stat:"3 of 7 skaters (43%)",medal_id:2},
+    {id:"nine_countries",title:"14 First and Second-Generation American Medalists, One Team",text:"With roots in 9 countries across 4 continents, these athletes remind us what makes Team USA extraordinary. Their families came to America from Canada, Mexico, Argentina, South Korea, China, Japan, Russia, Germany, and Italy \u2014 and their children stood on the Olympic podium draped in red, white, and blue. Their accomplishments belong to all of us and are a testament to our enduring national unity, strength, and pride.",stat:""}
   ]
 };
 
@@ -426,18 +488,70 @@ function Hero() {
       <div className="container">
         <div className={`reveal ${isVisible ? 'visible' : ''}`}>
           <div className="hero-eyebrow">Niskanen Center &middot; 2026 Milano Cortina Winter Olympics</div>
-          <h1>Half of America's gold medals were powered by <span className="accent">immigrant families.</span></h1>
-          <p className="hero-sub">{DATA.metadata.subtitle}. The US won a record {DATA.metadata.total_us_medals} medals, and immigrant-connected athletes were at the heart of the achievement.</p>
+          <h1>Half of America's gold medals were powered by <span className="accent">first and second-generation American athletes.</span></h1>
+          <p className="hero-sub">The US won a record 33 medals at the 2026 Winter Olympics. This interactive site allows you to explore how first and second-generation Americans contributed to this extraordinary achievement.</p>
         </div>
         <HeroMedalRow />
         <div className="stat-cards">
-          <AnimatedStat value={14} suffix=" of 82" label="medalists are immigrants or children of immigrants (17%)" delay={0.1} />
-          <AnimatedStat value={11} suffix=" of 33" label="total medals involved immigrant-connected athletes" delay={0.2} />
-          <AnimatedStat value={9} label="countries across 4 continents represented" delay={0.3} />
-          <AnimatedStat value={33.3} suffix="%" label="of US medals had an immigrant connection" delay={0.4} />
+          <AnimatedStat value={6} suffix=" of 12" label="gold medals involved first or second-generation Americans (50%)" delay={0.1} />
+          <AnimatedStat value={14} suffix=" of 82" label="medalists are immigrants or children of immigrants (17%)" delay={0.2} />
+          <AnimatedStat value={33.3} suffix="%" label="of all US medals had an immigrant connection" delay={0.3} />
         </div>
       </div>
     </section>
+  );
+}
+
+// ===== PODIUM =====
+function Podium({ onMedalClick }) {
+  const [ref, isVisible] = useInView();
+  const golds = DATA.medals.filter(m => m.medal === 'Gold');
+  const silvers = DATA.medals.filter(m => m.medal === 'Silver');
+  const bronzes = DATA.medals.filter(m => m.medal === 'Bronze');
+
+  const groups = [
+    { key: 'silver', label: 'Silver', rank: 2, medals: silvers, dotClass: 'silver-dot', blockClass: 'silver-block' },
+    { key: 'gold', label: 'Gold', rank: 1, medals: golds, dotClass: 'gold-dot', blockClass: 'gold-block' },
+    { key: 'bronze', label: 'Bronze', rank: 3, medals: bronzes, dotClass: 'bronze-dot', blockClass: 'bronze-block' }
+  ];
+
+  return (
+    <div className={`podium-wrapper reveal ${isVisible ? 'visible' : ''}`} ref={ref}>
+      <div className="podium">
+        {groups.map(g => {
+          const immCount = g.medals.filter(m => m.immigrant_involved).length;
+          const total = g.medals.length;
+          return (
+            <div key={g.key} className="podium-col">
+              <div className="podium-medals" style={{ maxWidth: 180 }}>
+                {g.medals.map((m, i) => (
+                  <div key={m.id}
+                       className={`podium-medal-dot ${g.dotClass} ${m.immigrant_involved ? 'imm' : 'non'}`}
+                       title={`${m.event}${m.immigrant_involved ? ' — Immigrant-connected' : ''}`}
+                       style={{ animationDelay: `${i * 0.08}s`, cursor: 'pointer' }}
+                       onClick={() => onMedalClick && onMedalClick(m.id)} />
+                ))}
+              </div>
+              <div className={`podium-block ${g.blockClass}`}>
+                <div className="podium-label">{g.label}</div>
+                <div className="podium-fraction">{immCount} of {total}</div>
+                <div className="podium-sublabel">immigrant-connected</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="podium-legend">
+        <div className="podium-legend-item">
+          <div className="podium-legend-dot leg-imm"></div>
+          Immigrant-connected
+        </div>
+        <div className="podium-legend-item">
+          <div className="podium-legend-dot leg-non"></div>
+          No immigrant connection
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -446,6 +560,7 @@ function MedalCard({ medal, expanded, onClick }) {
   const medalClass = medal.medal.toLowerCase();
   return (
     <div
+      id={`medal-card-${medal.id}`}
       className={`medal-card ${medal.immigrant_involved ? 'immigrant-card' : ''} ${expanded ? 'expanded' : ''}`}
       onClick={onClick}
       role="button"
@@ -459,7 +574,7 @@ function MedalCard({ medal, expanded, onClick }) {
           {medal.medal}
         </span>
         {medal.immigrant_involved && (
-          <span className="medal-card-tag">{medal.immigrant_count} immigrant-connected</span>
+          <span className="medal-card-tag">{medal.immigrant_count} {medal.immigrant_count === 1 ? 'athlete' : 'athletes'} with an immigrant connection</span>
         )}
       </div>
       <div className="medal-card-event">{medal.event}</div>
@@ -505,6 +620,15 @@ function MedalsSection() {
           <h2>Explore by Medals</h2>
           <p>All {DATA.metadata.total_us_medals} US medals from Milano Cortina. Click any medal to see the full roster.</p>
         </div>
+        <Podium onMedalClick={(id) => {
+          setFilter('all');
+          setImmFilter('all');
+          setExpandedId(id);
+          setTimeout(() => {
+            const el = document.getElementById(`medal-card-${id}`);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100);
+        }} />
         <div className="filter-bar">
           {['all','gold','silver','bronze'].map(f => (
             <button key={f} className={`filter-btn ${filter === f ? 'active' : ''}`}
@@ -751,9 +875,34 @@ function SportSection() {
             <div key={c.id} className="callout-card">
               <h3>{c.title}</h3>
               <p>{c.text}</p>
-              <div className="callout-stat">{c.stat}</div>
+              {c.stat && <div className="callout-stat">{c.stat}</div>}
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ===== FOOTER CTA =====
+function FooterCTA() {
+  return (
+    <section className="footer-cta">
+      <div className="container">
+        <div className="footer-cta-grid">
+          <div className="footer-box citation">
+            <h4>Suggested Citation</h4>
+            <p>Guerra, Gil. "First and Second-Generation Americans Won Half of America's Gold Medals." Points of Entry, February 2026. https://www.points-of-entry.com/</p>
+          </div>
+          <div className="footer-box corrections">
+            <h4>Corrections &amp; Comments</h4>
+            <p>Have a correction, question, or comment about this data? We welcome your feedback. Please contact Gil Guerra at the Niskanen Center at <a href="mailto:gguerra@niskanencenter.org">gguerra@niskanencenter.org</a>.</p>
+          </div>
+          <div className="footer-box subscribe">
+            <h4>Follow This Work</h4>
+            <p>Points of Entry provides interactive, original research on immigration.</p>
+            <a href="https://www.points-of-entry.com/" target="_blank" rel="noopener noreferrer" className="subscribe-btn">Subscribe to Points of Entry</a>
+          </div>
         </div>
       </div>
     </section>
@@ -810,7 +959,7 @@ function Nav() {
     <>
       <nav className="site-nav" role="navigation" aria-label="Main navigation">
         <div className="container">
-          <div className="nav-brand">Niskanen Center</div>
+          <a className="nav-brand" href="https://www.niskanencenter.org/" target="_blank" rel="noopener noreferrer">Niskanen Center</a>
           <div className="nav-links">
             {links.map(l => (
               <a key={l.id} href={`#${l.id}`}
@@ -820,6 +969,9 @@ function Nav() {
               </a>
             ))}
           </div>
+          <a className="nav-logo" href="https://www.points-of-entry.com/" target="_blank" rel="noopener noreferrer">
+            <img src="POE Logo Plain.png" alt="Points of Entry" />
+          </a>
           <button className="mobile-nav-toggle" onClick={() => setMobileOpen(!mobileOpen)}
                   aria-label="Toggle navigation menu">
             {mobileOpen ? '\u2715' : '\u2630'}
@@ -851,6 +1003,7 @@ function App() {
         <HeritageSection />
         <SportSection />
         <Methodology />
+        <FooterCTA />
       </main>
     </>
   );
